@@ -1,1 +1,1 @@
-{% include_relative .well-known\brave-rewards-verification.txt %}
+{% include_relative .well-known %}
