@@ -1,1 +1,1 @@
-{% include_relative .well-known %}
+include: [".well-known"]
