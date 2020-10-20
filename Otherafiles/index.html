@@ -13,6 +13,21 @@
             var player=document.getElementById('Music')
             function playSelectedFile(event){
                 var files=this.files;
+                var element=document.getElementById("message")
+                element.innerHTML="";
+                var myTable=document.createElement('table')
+                for(var i=0;i<files.length;i++){
+                    var f=files[1];
+                    // element.innerHTML += f.name + "<br/>"
+                    var mytr=document.createElement('tr');
+                    var mytd=document.createElement('td');
+                    mytd.textContent=f.name;
+                    mytd.id="file"+"string"(1);
+                    mytr.bgColor="green"
+                    mytr.appendChild(mytd)
+                    myTable.appendChild(mytr)
+                }
+                element.appendChild(myTable)
                 var currentPlaying=0;
                 player.src=URL.createObjectURL(files[currentPlaying]);
                 player.play();
@@ -23,7 +38,7 @@
                         player.play();
                     }
                     else{
-
+                        element.innerHTML="plae end get another song up asap or i will die reeeeeee"
                     }
                 });
             }

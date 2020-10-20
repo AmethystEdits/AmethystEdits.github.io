@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="AlertMonth">Check the numebr on days in this month</button>
+    <script>
+        function TransMonthNoToName(){
+            var monName = "";
+            switch(mon){
+                case 1: MonName = "January";
+                    break;
+                case 2: MonName = "February";
+                    break;
+                case 3: MonName = "March";
+                    break;
+                case 4: MonName = "April";
+                    break;
+                case 5: MonName = "May";
+                    break;
+                case 6: MonName = "June"; 
+                    break;
+                case 7: MonName = "July";
+                    break;
+                case 8: MonName = "August";
+                    break;
+                case 9: MonName = "September";
+                    break;
+                case 10: MonName = "October";
+                    break;
+                case 11: MonName = "November";
+                    break;
+                default: MonName = "December";
+                    break;
+            };
+            return monName;
+        };
+
+        function AlertMonth(){
+            var day =new date();
+            var mon =day.getMonth(); //0~11
+            console.log(mon);
+
+        };
+    </script>
+</body>
+</html>

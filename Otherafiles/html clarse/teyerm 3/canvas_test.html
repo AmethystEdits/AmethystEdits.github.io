@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>drawing in canvas</title>
+        </head>
+        <body>
+            <p>this is use image</p>
+            <img id="BG" src="html clarse\spoida web\imgs\bakgrund.jpg">
+            <p>kanvars</p>
+            <canvas id="myCanvas" width="400" height="200" style="border: 1px solid #000000">
+
+            </canvas>
+            <script>
+                windows.onload=function(){
+                    var c= document.getElementById("myCanvas")
+                    var ctx=c.getContext("2d")
+                    var img=document.getElementById("BG")
+                    ctx.drawImage(img,0,0,400,200)
+            }
+                // draw line
+                // ctx.moveTo(0,0)
+                // ctx.lineTo(400,200)
+                // ctx.stroke()
+
+                // draw a circle
+                //  ctx.beginPath() //pen go brrrrrrr to where u want it
+                //  ctx.arc(150,100,40,0, 2* Math.PI)
+                //  ctx.stroke()
+
+                //draw a text
+                // ctx.font = ("20px Georgia")
+                // ctx.strokeText("hello cruel world goodbye cruel world", 120, 30)
+                // ctx.font=("30px Verdana")
+                
+                // var gradient = ctx.createLinearGradient(0,0,c.width,0);//?
+                // gradient.addColorStop("0","red")
+                // gradient.addColorStop("0.5","blue")
+                // gradient.addColorStop("1","yellow")
+                // ctx.strokeStyle=gradient;
+                // ctx.strokeText("smol frown",120,60)
+
+                //draw a gradient\
+                // var gradient = ctx.createLinearGradient(0,0,350,0);//?
+                // gradient.addColorStop("1","red")
+                // gradient.addColorStop("2","blue")
+
+                // ctx.fillStyle=gradient;
+                // ctx.fillRect(0,0,400,200)
+                // <Image id="BG" 
+                
+            </script>
+        </body>
+    </html>
