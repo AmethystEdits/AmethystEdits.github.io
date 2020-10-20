@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: amethystedits.github.io
-Token: 853e402dbe5683329c28b1aa7baa3bea3bd06e872274f3593446cb93de5122d8
