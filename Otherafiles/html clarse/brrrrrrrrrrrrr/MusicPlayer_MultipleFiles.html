@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Plaper - Multiple Musics</title>
+</head>
+<body>
+    <input id="MusicFile" type="file" accept="audio/*" multiple>
+    <audio id="Music" controls="controls" src="" autoplay></audio>
+    <script>
+        var player=document.getElementById('Music')
+        function playSelectedFile(event){
+            var files=this.files;
+            
+            var currentPlaying=0;
+
+            player.src=URL.createObjectURL(files[currentPlaying]);
+            player.play();
+
+            player.addEventListener("ended",function() {
+                if(files.length-currentPlaying>1){
+                    ++currentPlaying;
+                    player.src=URL.createObjectURL(files[currentPlaying]);
+                    player.play();
+                }
+                else{
+                    
+                }
+            });
+        }
+        
+        var inputNode=document.getElementById('MusicFile');
+        inputNode.addEventListener('change',playSelectedFile,false);
+    </script>
+</body>
+</html>

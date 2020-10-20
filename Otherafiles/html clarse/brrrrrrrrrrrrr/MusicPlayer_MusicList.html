@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Plaper - Music List</title>
+</head>
+<body>
+    <div id="message">Please pick up the music you want to play.</div>
+    <input id="MusicFile" type="file" accept="audio/*" multiple>
+    <audio id="Music" controls="controls" src="" autoplay></audio>
+    <script>
+        var player=document.getElementById('Music')
+        function playSelectedFile(event){
+            var files=this.files;
+            
+            var element=document.getElementById('message')
+            element.innerHTML="";
+            for(var i=0;i<files.length;i++){
+                var f=files[i];
+
+                element.innerHTML += f.name + "<br/>"
+
+            }
+
+
+            var currentPlaying=0;
+
+            player.src=URL.createObjectURL(files[currentPlaying]);
+            player.play();
+
+            player.addEventListener("ended",function() {
+                if(files.length-currentPlaying>1){
+                    ++currentPlaying;
+                    player.src=URL.createObjectURL(files[currentPlaying]);
+                    player.play();
+                }
+                else{
+                    element.innerHTML="Play ended. Pick up another music please.";
+                }
+            });
+        }
+        
+        var inputNode=document.getElementById('MusicFile');
+        inputNode.addEventListener('change',playSelectedFile,false);
+    </script>
+</body>
+</html>
