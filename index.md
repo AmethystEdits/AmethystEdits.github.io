@@ -3,11 +3,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Amethyst</title>
+        
     </head>
     <body>
-        <p>
-            anything
-        </p>
-        <audio id="Music" controls="controls" src="Windows Battery Low.wav"></audio>
     </body>
 </html>
