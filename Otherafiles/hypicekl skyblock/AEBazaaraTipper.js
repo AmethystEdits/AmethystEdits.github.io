@@ -19,8 +19,8 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ /
     if (EpearlsProcessed>EEpearlsProcessed){
         if ((MoneyAvailable/EEpearlsProcessed)>71680){
             var quotient = Math.floor((MoneyAvailable/EEpearlsProcessed)/71680);
-            var remainder = MoneyAvailable/EEpearlsProcessed % 71680;
-            console.log("Normal ender pearls are best at this time, buy " + quotient + " buy order/s and " + remainder + "items for the last order.");
+            var remainder = Math.floor(MoneyAvailable/EEpearlsProcessed % 71680);
+            console.log("Normal ender pearls are best at this time, buy " + quotient + " buy order/s and " + remainder + " items for the last order.");
         }
         else{
             console.log("Normal ender pearls crafted into enchanted ednder pearls and sold to the npc are best right now")
@@ -31,13 +31,5 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ /
         console.log("Enchanted Ender Pearls have a higher margin than an Enchanted ender pearl from 20 normal enderpearls; flip the Enchanted Ender Pearls, not normal ones for now.")
         let EPearlStatus1 = "EPearl_superior";
     }
-
-    if (EPearlStatus1=="EEPearl_superior"){
-        console.log("You can afford " + (MoneyAvailable/PriceOfEnchantedEPearls) + " E pearls to flip");
-    }
-    else{
-        console.log("You can afford " + (MoneyAvailable/EEpearlsProcessed) + " E pearls to flip");
-    }
-
 }
 // use this ""var difference = function (a, b) { return Math.abs(a - b); }"" and get this working properly as this works off of highest cost and not lowest cost, use the number generated and difference it by 200 then sort by lowsest for the answer and round the end number for no decimals//done// and if in eccess of 71680 say 1 full order and (excess stuff)//done// add player api key usage to get the page to respond when youve been outbid by someone else on the bazaar and the exact price and orders neccisary for each of the prics to 7.5 and up to 10
