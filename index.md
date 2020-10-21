@@ -5,6 +5,6 @@
         <title>Amethyst</title>
     </head>
     <body>
-        <object data="Otherafiles\index.html"></object>
+        <object data="index.html"></object>
     </body>
 </html>

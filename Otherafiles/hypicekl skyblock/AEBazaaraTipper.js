@@ -1,5 +1,6 @@
 //init area
-
+let PlayerAPIKey = "";
+let MoneyAvailable = 2000;
 /*    begin fucntion area     */
 
 /* golden tooth function: (MoneyAvailable(How much money target player is in possetion of),
