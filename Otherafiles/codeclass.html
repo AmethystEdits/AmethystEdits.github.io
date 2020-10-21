@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>music plapper</title>
+    </head>
+    <body>
+        <div id="message"> pick the dman music youre gonna play or ill have a fricking anerurism</div>
+        <input id="MusicFile" type="file" accept="audio/*" multiple>
+        <audio id=Music" controls="controls" src="Windows Battery Low.wav" autoplay></audio>
+        <script>
+            var player=document.getElementById('Music')
+            function playSelectedFile(event){
+                var files=this.files;
+                var element=document.getElementById("message")
+                element.innerHTML="";
+                var myTable=document.createElement('table')
+                for(var i=0;i<files.length;i++){
+                    var f=files[1];
+                    // element.innerHTML += f.name + "<br/>"
+                    var mytr=document.createElement('tr');
+                    var mytd=document.createElement('td');
+                    mytd.textContent=f.name;
+                    mytd.id="file"+"string"(1);
+                    mytr.bgColor="green"
+                    mytr.appendChild(mytd)
+                    myTable.appendChild(mytr)
+                }
+                element.appendChild(myTable)
+                var currentPlaying=0;
+                player.src=URL.createObjectURL(files[currentPlaying]);
+                player.play();
+                player.addEventListener("ended",function(){
+                    if(files.length-currentPlaying>1){
+                        ++currentPlaying;
+                        player.src=URL.createObjectURL(files[currentPlaying]);
+                        player.play();
+                    }
+                    else{
+                        element.innerHTML="plae end get another song up asap or i will die reeeeeee"
+                    }
+                });
+            }
+            var inputNode=document.getElementById("MusicFile");
+            inputNode.addEventListener('change',playSelectedFile,false);
+        </script>
+    </body>
+</html>
