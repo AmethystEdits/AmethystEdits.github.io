@@ -13,14 +13,22 @@ PlayerAPIKey(Api key of target player),WolfToothPrice(Price of normal wolf teeth
 PriceOfEnchantedEPearls(price of ehcanted ender pearls),MoneyAvailable(How much money target player is in posseion of),
 PlayerAPIKey(target player's api key)) \\ps ench e pearls sell for 200 at npc */
 function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ //add playerapikey to used things
-    let Epearlisine = PriceOfEPearls*20;
     let EPearlStatus1 = "";
-    if (Epearlisine>PriceOfEPearls){
-        console.log("Enchanted Ender Pearls have a higher margin than an Enchanted ender pearl from 20 normal enderpearls; flip the Enchanted Ender Pearls, not normal ones for now.")
+    let EpearlsProcessed = Math.abs((PriceOfEPearls*20) - 200)
+    let EEpearlsProcessed = Math.abs(PriceOfEnchantedEPearls - 200)
+    if (EpearlsProcessed>EEpearlsProcessed){
+        if ((MoneyAvailable/EEpearlsProcessed)>71680){
+            var quotient = Math.floor((MoneyAvailable/EEpearlsProcessed)/71680);
+            var remainder = MoneyAvailable/EEpearlsProcessed % 71680;
+            console.log("Normal ender pearls are best at this time, buy " + quotient + " buy order/s and " + remainder + "items for the last order.");
+        }
+        else{
+            console.log("Normal ender pearls crafted into enchanted ednder pearls and sold to the npc are best right now")
+        }
         let EPearlStatus1 = "EEPearl_superior";
     }
     else{
-        console.log("Normal ender pearls crafted into enchanted ednder pearls and sold to the npc are best right now")
+        console.log("Enchanted Ender Pearls have a higher margin than an Enchanted ender pearl from 20 normal enderpearls; flip the Enchanted Ender Pearls, not normal ones for now.")
         let EPearlStatus1 = "EPearl_superior";
     }
 
@@ -28,8 +36,8 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ /
         console.log("You can afford " + (MoneyAvailable/PriceOfEnchantedEPearls) + " E pearls to flip");
     }
     else{
-        console.log("You can afford " + (MoneyAvailable/Epearlisine) + " E pearls to flip");
+        console.log("You can afford " + (MoneyAvailable/EEpearlsProcessed) + " E pearls to flip");
     }
 
 }
-// use this ""var difference = function (a, b) { return Math.abs(a - b); }"" and get this working properly as this works off of highest cost and not lowest cost, use the number generated and difference it by 200 then sort by lowsest for the answer and round the end number for no decimals and if in eccess of 71680 say 1 full order and (excess stuff)
+// use this ""var difference = function (a, b) { return Math.abs(a - b); }"" and get this working properly as this works off of highest cost and not lowest cost, use the number generated and difference it by 200 then sort by lowsest for the answer and round the end number for no decimals//done// and if in eccess of 71680 say 1 full order and (excess stuff)//done// add player api key usage to get the page to respond when youve been outbid by someone else on the bazaar and the exact price and orders neccisary for each of the prics to 7.5 and up to 10
