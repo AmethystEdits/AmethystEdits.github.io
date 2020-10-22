@@ -1,6 +1,6 @@
 //init area
 let PlayerAPIKey = "";
-let MoneyAvailable = 2000;
+let PlayerMoney = 2000;
 /*    begin fucntion area     */
 
 /* golden tooth function: (MoneyAvailable(How much money target player is in possetion of),
@@ -23,12 +23,12 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ /
             console.log("Normal ender pearls are best at this time, buy " + quotient + " buy order/s and " + remainder + " items for the last order.");
         }
         else{
-            console.log("Normal ender pearls crafted into enchanted ednder pearls and sold to the npc are best right now")
+            console.log("Normal ender pearls crafted into enchanted ender pearls and sold to the npc are best right now, buy " + Math.floor(MoneyAvailable/PriceOfEPearls) + ".")
         }
         let EPearlStatus1 = "EEPearl_superior";
     }
     else{
-        console.log("Enchanted Ender Pearls have a higher margin than an Enchanted ender pearl from 20 normal enderpearls; flip the Enchanted Ender Pearls, not normal ones for now.")
+        console.log("Enchanted Ender Pearls have a higher margin than an Enchanted ender pearl from 20 normal enderpearls at this time, buy " + Math.floor(MoneyAvailable/PriceOfEnchantedEPearls) + ".")
         let EPearlStatus1 = "EPearl_superior";
     }
 }
