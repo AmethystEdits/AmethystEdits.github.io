@@ -13,6 +13,7 @@ PlayerAPIKey(Api key of target player),WolfToothPrice(Price of normal wolf teeth
 PriceOfEnchantedEPearls(price of ehcanted ender pearls),MoneyAvailable(How much money target player is in posseion of),
 PlayerAPIKey(target player's api key)) \\ps ench e pearls sell for 200 at npc */
 function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ //add playerapikey to used things
+    MoneyAvailable = MoneyAvailable / 1.5%;
     let EPearlStatus1 = "";
     let EpearlsProcessed = Math.abs((PriceOfEPearls*20) - 200)
     let EEpearlsProcessed = Math.abs(PriceOfEnchantedEPearls - 200)
