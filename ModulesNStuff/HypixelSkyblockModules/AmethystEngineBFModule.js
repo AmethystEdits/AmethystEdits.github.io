@@ -2,6 +2,7 @@
 let PlayerAPIKey = "";
 let PlayerMoney = 2000;
 let CoopTaxRate = 1.5;
+console.log("AE Build V8.9 loaded")
 /*    begin fucntion area     */
 
 /* golden Tooth function: (MoneyAvailable(How much money target player is in possetion of),
