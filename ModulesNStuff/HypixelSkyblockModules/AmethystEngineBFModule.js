@@ -18,13 +18,14 @@ PriceOfEnchantedEPearls(price of ehcanted ender pearls),MoneyAvailable(How much 
 PlayerAPIKey(target player's api key)) \\ps ench e pearls sell for 200 at npc */
 function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ //add playerapikey to used things
     let EPearlStatus1 = "";
+    let EpearlsPreCalc = Math.floor(((CoopTaxRate/100)*PriceOfEPearls)+(Math.abs(PriceOfEPearls - 200)));
     let EpearlsFinalCalc = Math.floor(((CoopTaxRate/100)*PriceOfEPearls)+(Math.abs((PriceOfEPearls*20) - 200)));
     let EEpearlsFinalCalc = Math.floor(((CoopTaxRate/100)*PriceOfEnchantedEPearls)+(Math.abs(PriceOfEnchantedEPearls - 200)));
     if (EpearlsFinalCalc>EEpearlsFinalCalc){
-        let Profit = Math.floor((Math.abs(EpearlsFinalCalc-200))*(MoneyAvailable/EpearlsFinalCalc));
+        let Profit = (Math.abs(EpearlsFinalCalc-200))*(MoneyAvailable/EpearlsFinalCalc);
         if ((MoneyAvailable/EpearlsFinalCalc)>71680){
-            let quotient = Math.floor((MoneyAvailable/EpearlsFinalCalc)/71680);
-            let remainder = Math.floor((MoneyAvailable/EpearlsFinalCalc) % 71680);
+            let quotient = Math.floor((MoneyAvailable/EpearlsPreCalc)/71680);
+            let remainder = Math.floor((MoneyAvailable/EpearlsPreCalc) % 71680);
             console.log("Normal ender pearls are best at this time, buy " + quotient + " buy order/s and " + remainder + " items for the last order for a estimated " + Profit + " coins of profit.");
         }
         else{
