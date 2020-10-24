@@ -20,10 +20,10 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ /
     let EpearlsFinalCalc = Math.floor(((CoopTaxRate/100)*PriceOfEPearls)+(Math.abs((PriceOfEPearls*20) - 200)));
     let EEpearlsFinalCalc = Math.floor(((CoopTaxRate/100)*PriceOfEnchantedEPearls)+(Math.abs(PriceOfEnchantedEPearls - 200)));
     if (EpearlsFinalCalc>EEpearlsFinalCalc){
-        let Profit = Math.floor((Math.abs((PriceOfEPearls*20) - 200))*(MoneyAvailable/EpearlsFinalCalc));
+        let Profit = Math.floor((Math.abs(EpearlsFinalCalc-200))*(MoneyAvailable/EpearlsFinalCalc));
         if ((MoneyAvailable/EpearlsFinalCalc)>71680){
-            let quotient = (MoneyAvailable/EpearlsFinalCalc)/71680;
-            let remainder = (MoneyAvailable/EpearlsFinalCalc) % 71680;
+            let quotient = Math.floor((MoneyAvailable/EpearlsFinalCalc)/71680);
+            let remainder = Math.floor((MoneyAvailable/EpearlsFinalCalc) % 71680);
             console.log("Normal ender pearls are best at this time, buy " + quotient + " buy order/s and " + remainder + " items for the last order for a estimated " + Profit + " coins of profit.");
         }
         else{
