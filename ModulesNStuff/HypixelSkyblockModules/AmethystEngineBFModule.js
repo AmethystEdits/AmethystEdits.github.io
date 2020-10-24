@@ -2,7 +2,7 @@
 let PlayerAPIKey = "";
 let PlayerMoney = 2000;
 let CoopTaxRate = 1.5;
-console.log("AE Build V0.8.9.1 loaded")
+
 /*    begin fucntion area     */
 
 /* golden Tooth function: (MoneyAvailable(How much money target player is in possetion of),
@@ -39,3 +39,4 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ /
     }
 }
 // use this ""var difference = function (a, b) { return Math.abs(a - b); }"" and get this working properly as this works off of highest cost and not lowest cost, use the number generated and difference it by 200 then sort by lowsest for the answer and round the end number for no decimals//done// and if in eccess of 71680 say 1 full order and (excess stuff)//done// add player api key usage to get the page to respond when youve been outbid by someone else on the bazaar and the exact price and orders neccisary for each of the prics to 7.5 and up to 10
+console.warn("AE Build V0.8.9.2 loaded");
