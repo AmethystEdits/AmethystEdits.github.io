@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Plaper - Interactive Music List</title>
+</head>
+<body>
+    <div id="message">decide music go</div>
+    <input id="MusicFile" type="file" accept="audio/*" multiple>
+    <audio id="Music" controls="controls" src="" autoplay></audio>
+    
+    <script>
+        var player=document.getElementById('Music')
+        var currentPlaying;
+        var files;
+
+        function playSelectedFile(event){
+            files=this.files;
+            
+            var element=document.getElementById('message')
+            element.innerHTML="";
+            
+            var mytable=document.createElement('table')
+
+
+            for(var i=0;i<files.length;i++){
+                var f=files[i];
+
+                // element.innerHTML += f.name + "<br/>"
+                var mytr=document.createElement('tr');
+                var mytd=document.createElement('td');
+                mytd.textContent=f.name;
+                mytd.id="file"+String(i);
+                mytd.bgColor="green"
+                mytr.appendChild(mytd)
+
+                var buttontd=document.createElement('td');
+                var mybutton=document.createElement("button");
+                mybutton.innerHTML="Play";
+                mybutton.type="button"
+                mybutton.setAttribute("OnClick","playSpecificFile("+i+");")
+                buttontd.appendChild(mybutton);
+                mytr.appendChild(buttontd)
+
+
+                mytable.appendChild(mytr)
+            }
+            element.appendChild(mytable)
+
+
+            currentPlaying=0;
+            var currentPlayingFile="file"+String(currentPlaying);
+            document.getElementById(currentPlayingFile).bgColor="red";
+
+            player.src=URL.createObjectURL(files[currentPlaying]);
+            player.play();
+
+            player.addEventListener("ended",function() {
+                if(files.length-currentPlaying>1){
+                    document.getElementById(currentPlayingFile).bgColor="green";
+                    ++currentPlaying;
+                    currentPlayingFile="file"+String(currentPlaying);
+                    document.getElementById(currentPlayingFile).bgColor="red";
+
+                    player.src=URL.createObjectURL(files[currentPlaying]);
+                    player.play();
+                }
+                else{
+                    element.innerHTML="Play ended. Pick up another music please.";
+                }
+            });
+        }
+
+        function playSpecificFile(i) {
+            var lastPlayingFile="file"+String(currentPlaying);
+            document.getElementById(lastPlayingFile).bgColor="green";
+
+            currentPlaying=i;
+            var currentPlayingFile="file"+String(currentPlaying);
+            document.getElementById(currentPlayingFile).bgColor="red";
+            player.src=URL.createObjectURL(files[currentPlaying]);
+            player.play();
+
+        }
+        
+        var inputNode=document.getElementById('MusicFile');
+        inputNode.addEventListener('change',playSelectedFile,false);
+    </script>
+</body>
+</html>

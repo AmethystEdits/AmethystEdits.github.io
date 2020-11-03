@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Plaper - Interactive Music List</title>
+</head>
+<body>
+    <div id="message">Please pick up the music you want to play.</div>
+    <input id="MusicFile" type="file" accept="audio/*" multiple>
+    <audio id="Music" controls="controls" src="" autoplay></audio>
+    <!-- <table>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table> -->
+    <script>
+        var player=document.getElementById('Music')
+        function playSelectedFile(event){
+            var files=this.files;
+            
+            var element=document.getElementById('message')
+            element.innerHTML="";
+            
+            var mytable=document.createElement('table')
+
+
+            for(var i=0;i<files.length;i++){
+                var f=files[i];
+
+                // element.innerHTML += f.name + "<br/>"
+                var mytr=document.createElement('tr');
+                var mytd=document.createElement('td');
+                mytd.textContent=f.name;
+                mytd.id="file"+String(i);
+                mytd.bgColor="green"
+                mytr.appendChild(mytd)
+                mytable.appendChild(mytr)
+            }
+            element.appendChild(mytable)
+
+
+            var currentPlaying=0;
+            var currentPlayingFile="file"+String(currentPlaying);
+            document.getElementById(currentPlayingFile).bgColor="red";
+
+            player.src=URL.createObjectURL(files[currentPlaying]);
+            player.play();
+
+            player.addEventListener("ended",function() {
+                if(files.length-currentPlaying>1){
+                    document.getElementById(currentPlayingFile).bgColor="green";
+                    ++currentPlaying;
+                    currentPlayingFile="file"+String(currentPlaying);
+                    document.getElementById(currentPlayingFile).bgColor="red";
+
+                    player.src=URL.createObjectURL(files[currentPlaying]);
+                    player.play();
+                }
+                else{
+                    element.innerHTML="Play ended. Pick up another music please.";
+                }
+            });
+        }
+        
+        var inputNode=document.getElementById('MusicFile');
+        inputNode.addEventListener('change',playSelectedFile,false);
+    </script>
+</body>
+</html>
