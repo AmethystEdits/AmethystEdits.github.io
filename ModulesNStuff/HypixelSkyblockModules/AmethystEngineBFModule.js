@@ -28,7 +28,6 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
 PriceOfEnchantedEPearls(price of ehcanted ender pearls),MoneyAvailable(How much money target player is in posseion of),
 PlayerAPIKey(target player's api key)) \\ps ench e pearls sell for 200 at npc */
 function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ //add playerapikey to used things
-    let EPearlStatus1 = "";
     PriceOfEPearls = PriceOfEPearls+(CoopTaxRate/100)*PriceOfEPearls;
     PriceOfEnchantedEPearls = PriceOfEnchantedEPearls+(CoopTaxRate/100)*PriceOfEnchantedEPearls; // incorporate tax in the final calc
     let EPPX20 /*e pearl price times 20 */ = PriceOfEPearls*20;
@@ -42,11 +41,9 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ /
         else{
             console.log("Normal ender pearls crafted into enchanted ender pearls and sold to the npc are best right now, buy " + Math.floor(MoneyAvailable/PriceOfEPearls) +  "for a estimated " + Profit + " coins of profit.")
         }
-        EPearlStatus1 = "EEPearl_superior";
     }
     else{
         console.log("Enchanted Ender Pearls have a higher margin than an Enchanted ender pearl from 20 normal enderpearls at this time, buy " + (MoneyAvailable/PriceOfEnchantedEPearls) + ".")
-        EPearlStatus1 = "EPearl_superior";
     }
     console.log("This Calculation was done assuming the player was " + IGN + " and with the assumed tax rate of " + CoopTaxRate + ", if these are wrong ping/dm/create a issue ticket on my github" )
 } // Func "EPearlFlipper" is at v0.9,v1 will occor when automatically taking the targetplayer's money and tax rate and detecting and telling the website to say that its happened. this is the final version for manual
