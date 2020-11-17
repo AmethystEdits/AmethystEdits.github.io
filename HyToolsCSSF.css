@@ -1,4 +1,20 @@
-#poopoo {
-    border: 5px;
-    border-color: black;
+body{
+    background-color:rgb(20, 20, 20);
+    color:rgb(209, 209, 209);
+    font-family:sans-serif;
+}
+h1{
+    color:white;
+    border: solid 2px;
+    border-color:rgb(163, 163, 163);
+    text-align: center;
+    font-size: 2cm;
+    font-family: helvetica;
+    border-radius: 1000px;
+    border-width: 5px;
+    border-style: double;
+    border-collapse: collapse;
+}
+#BuildPinger{
+    font-size: smaller;
 }

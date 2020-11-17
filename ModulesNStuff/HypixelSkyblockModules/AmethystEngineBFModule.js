@@ -3,8 +3,7 @@ let PlayerAPIKey = "";
 let PlayerMoney = 2000;
 let IGN = "AngxlsInTheSkyy";
 let CoopTaxRate = 1.5;
-let BuildTaggerDoc = document.getElementById("BuildPinger")
-let BuildNumber = "AE\\HytoolsModule Build V0.8.9.2 loaded";
+let BuildNumber = "AE\\HytoolsModule Build V0.8.9.3 loaded";
 /*    begin fucntion area     */
 
 /* golden Tooth function: (MoneyAvailable(How much money target player is in possetion of),
@@ -19,9 +18,15 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
     let EnchGoldFinalPrice = (PriceOfEnchGold*32)+(PriceOfWolfTeeth*320);
     let GoldFinalPrice = (GPX160*32)+(PriceOfWolfTeeth*320);
     if (GoldFinalPrice<EnchGoldFinalPrice){
-        
+        let quotient = Math.floor((MoneyAvailable/GoldFinalPrice)/71680);
+        let remainder = Math.floor((MoneyAvailable/GoldFinalPrice) % 71680);
+        let Profit = Math.floor((Math.floor(Math.abs(GoldFinalPrice-PriceOfGoldenTooth)))*(MoneyAvailable/GoldFinalPrice));
+        console.log(quotient + "quotient," + remainder + " remainder, " + Profit + " profit, ");
+        console.log(GPX160 + "gpx + " ,EnchGoldFinalPrice + "enchgoldfilapprice + " ,GoldFinalPrice + "elseblocc" );
     }
-
+    else{
+        console.log(GPX160 + "gpx + " ,EnchGoldFinalPrice + "enchgoldfilapprice + " ,GoldFinalPrice + "elseblocc" )
+    }
 }
 
 /* Enderpearl flipperdoo: (PriceOfEPearls(Price of normal encanted ender pearls),
@@ -45,11 +50,10 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ /
     else{
         console.log("Enchanted Ender Pearls have a higher margin than an Enchanted ender pearl from 20 normal enderpearls at this time, buy " + (MoneyAvailable/PriceOfEnchantedEPearls) + ".")
     }
-    console.log("This Calculation was done assuming the player was " + IGN + " and with the assumed tax rate of " + CoopTaxRate + ", if these are wrong ping/dm/create a issue ticket on my github" )
+    console.log("This Calculation was done assuming the player was " + IGN + " (to grab money available) and with the assumed tax rate of " + CoopTaxRate + ", if these are wrong ping/dm/create a issue ticket on my github" )
 } // Func "EPearlFlipper" is at v0.9,v1 will occor when automatically taking the targetplayer's money and tax rate and detecting and telling the website to say that its happened. this is the final version for manual
 // use this ""var difference = function (a, b) { return Math.abs(a - b); }"" and get this working properly as this works off of highest cost and not lowest cost, use the number generated and difference it by 200 then sort by lowsest for the answer and round the end number for no decimals//done// and if in eccess of 71680 say 1 full order and (excess stuff)//done// add player api key usage to get the page to respond when youve been outbid by someone else on the bazaar and the exact price and orders neccisary for each of the prics to 7.5 and up to 10
 console.warn(BuildNumber);
-BuildTaggerDoc.innerHTML=BuildNumber;
 /*exp/copypasta zone
                num1                   num2
 (Math.abs(PriceOfEnchantedEPearls - 200)) // find difference of
