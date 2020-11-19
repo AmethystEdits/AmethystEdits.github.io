@@ -1,7 +1,10 @@
 body{
-    background-color:rgb(20, 20, 20);
+    background-color:rgb(58, 58, 58);
     color:rgb(209, 209, 209);
     font-family:sans-serif;
+}
+::selection{
+    background:#fff200;
 }
 h1{
     color:white;
@@ -14,6 +17,7 @@ h1{
     border-width: 5px;
     border-style: double;
     border-collapse: collapse;
+    user-select:none;
 }
 #BuildPinger{
     font-size: smaller;
