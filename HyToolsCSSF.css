@@ -1,10 +1,17 @@
+@font-face{
+    src: local('fonts\Raleway-VariableFont_wght.ttf');
+    font-family:Raleway;
+    src: local('fonts\Ubuntu Font\Ubuntu-Medium.ttf');
+    font-family: 'Ubuntu';
+}
 body{
     background-color:rgb(58, 58, 58);
     color:rgb(209, 209, 209);
-    font-family:sans-serif;
+    font-family:Raleway;
 }
 ::selection{
     background:#fff200;
+    color:#000000;
 }
 h1{
     color:white;
@@ -12,13 +19,15 @@ h1{
     border-color:rgb(163, 163, 163);
     text-align: center;
     font-size: 2cm;
-    font-family: helvetica;
+    font-family: 'Ubuntu', sans-serif;
     border-radius: 1000px;
     border-width: 5px;
     border-style: double;
     border-collapse: collapse;
     user-select:none;
 }
-#BuildPinger{
+#BuildPingerStan{
     font-size: smaller;
+    background-color: white;
+    padding: 2mm;
 }
