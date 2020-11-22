@@ -3,7 +3,7 @@ let PlayerAPIKey = "";
 let PlayerMoney = 2000;
 let IGN = "AngxlsInTheSkyy";
 let CoopTaxRate = 1.5;
-let BuildNumber = "AE\\HytoolsModule Build V0.8.9.4 loaded";
+let BuildNumber = "AE\\HytoolsModule Build V0.8.9.7 loaded";
 /*    begin fucntion area     */
 
 /* golden Tooth function: (MoneyAvailable(How much money target player is in possetion of),
@@ -17,15 +17,43 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
     let GPX160 /* gold price time 160 to convert from gold ingot toenchanted golden ingot */ = PriceOfGold*160;
     let EnchGoldFinalPrice = (PriceOfEnchGold*32)+(PriceOfWolfTeeth*320);
     let GoldFinalPrice = (GPX160*32)+(PriceOfWolfTeeth*320);
-    if (GoldFinalPrice<EnchGoldFinalPrice){
-        let quotient = Math.floor((MoneyAvailable/GoldFinalPrice)/71680);
-        let remainder = Math.floor((MoneyAvailable/GoldFinalPrice) % 71680);
-        let Profit = Math.floor((Math.floor(Math.abs(GoldFinalPrice-PriceOfGoldenTooth)))*(MoneyAvailable/GoldFinalPrice));
-        console.log(quotient + "quotient," + remainder + " remainder, " + Profit + " profit, ");
-        console.log(GPX160 + "gpx + " ,EnchGoldFinalPrice + "enchgoldfilapprice + " ,GoldFinalPrice + "elseblocc" );
+    if (GoldFinalPrice>PriceOfGoldenTooth){
+        console.warn("Gold Tooth crafting isn't profitable. Try again later, it might be profitable then.");
+    }
+    else if(EnchGoldFinalPrice>PriceOfGoldenTooth){
+        console.warn("Gold Tooth crafting isn't profitable. Try again later, it might be profitable then.");
     }
     else{
-        console.log(GPX160 + "gpx + " ,EnchGoldFinalPrice + "enchgoldfilapprice + " ,GoldFinalPrice + "elseblocc" )
+        if (GoldFinalPrice<EnchGoldFinalPrice){
+            let quotient = Math.floor((MoneyAvailable/GoldFinalPrice)/71680);
+            let remainder = Math.floor((MoneyAvailable/GoldFinalPrice) % 71680);
+            let Profit = Math.floor((Math.floor(Math.abs(GoldFinalPrice-PriceOfGoldenTooth)))*(MoneyAvailable/GoldFinalPrice));
+            // console.log(quotient + "quotient," + remainder + " remainder, " + Profit + " profit, "); debug options
+            // console.log(GPX160 + "gpx + " ,EnchGoldFinalPrice + "enchgoldfilapprice + " ,GoldFinalPrice + "elseblocc" );
+            let GoldAmount=((quotient*71680)+remainder)*32;
+            let WolfToothAmount=((quotient*71680)+remainder)*160;
+            let quotient2 = Math.floor(GoldAmount/71680);
+            let remainder2 = Math.floor(GoldAmount % 71680);
+            let quotient3 = Math.floor(WolfToothAmount/71680);
+            let remainder3 = Math.floor(WolfToothAmount % 71680);
+            if (GoldAmount>71680){
+                console.log("Buying the ingredients for gold teeth is profitable right now. Buy " + quotient2 + " full buy orders of REGUALAR gold, and " + remainder2 + " gold ingots in a seperate order.")
+            }
+            else{
+                console.log("Buying the ingredients for gold teeth is profitable right now. Buy " + remainder2 + " gold ingots in a order.")
+            }
+            if(WolfToothAmount>71680){
+                console.log("For the wolf teeth, Buy " + quotient3 + " full buy orders of REGUALAR Wolf Teeth, and " + remainder3 + " Wolf teeth in a seperate order.")
+            }
+            else{
+                console.log("For the wolf teeth, Buy " + remainder3 + " Wolf teeth in a order.")
+            }
+            console.log("This calculation was done assuming the player here was " + IGN + " and the tax rate for the player crafting is " + CoopTaxRate + ".");
+        }
+        else{
+            // console.log(GPX160 + "gpx + " ,EnchGoldFinalPrice + "enchgoldfilapprice + " ,GoldFinalPrice + "elseblocc" ) debug option
+
+        }
     }
 }
 
