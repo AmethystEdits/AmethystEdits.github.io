@@ -3,7 +3,8 @@ let PlayerAPIKey = "";
 let PlayerMoney = 2000;
 let IGN = "AngxlsInTheSkyy";
 let CoopTaxRate = 1.5;
-let BuildNumber = "AE\\HytoolsModule Build V0.8.9.7 loaded";
+let ActualBuildNumber = "0.8.9.8"
+let BuildNumber = "AE\\HytoolsModule Build V" + ActualBuildNumber + " loaded";
 /*    begin fucntion area     */
 
 /* golden Tooth function: (MoneyAvailable(How much money target player is in possetion of),
@@ -48,14 +49,37 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             else{
                 console.log("For the wolf teeth, Buy " + remainder3 + " Wolf teeth in a order.")
             }
+            console.warn("The Golden Wolf Tooth Command was ran here. The estimated profit for it was " + Profit + " coins.")
             console.log("This calculation was done assuming the player here was " + IGN + " and the tax rate for the player crafting is " + CoopTaxRate + ".");
         }
         else{
             // console.log(GPX160 + "gpx + " ,EnchGoldFinalPrice + "enchgoldfilapprice + " ,GoldFinalPrice + "elseblocc" ) debug option
-
+            let quotient = Math.floor((MoneyAvailable/EnchGoldFinalPrice)/71680);
+            let remainder = Math.floor((MoneyAvailable/EnchGoldFinalPrice) % 71680);
+            let Profit = Math.floor((Math.floor(Math.abs(EnchGoldFinalPrice-PriceOfGoldenTooth)))*(MoneyAvailable/EnchGoldFinalPrice));
+            let EnchGoldAmount=((quotient*71680)+remainder)*32;
+            let WolfToothAmount=((quotient*71680)+remainder)*160;
+            let quotientOfEnchGold = Math.floor(EnchGoldAmount/71680);
+            let remainderOfEnchGold = Math.floor(EnchGoldAmount % 71680);
+            let quotientOfWolfteeth = Math.floor(WolfToothAmount/71680);
+            let remainderOfWolfTeeth = Math.floor(WolfToothAmount % 71680);
+            if (EnchGoldAmount>71680){
+                console.log("Buying the ingredients for gold teeth is profitable right now. Buy " + quotientOfEnchGold + " full buy orders of REGUALAR gold, and " + remainderOfEnchGold + " gold ingots in a seperate order.")
+            }
+            else{
+                console.log("Buying the ingredients for gold teeth is profitable right now. Buy " + quotientOfEnchGold + " gold ingots in a order.")
+            }
+            if(WolfToothAmount>71680){
+                console.log("For the wolf teeth, Buy " + quotientOfWolfteeth + " full buy orders of REGUALAR Wolf Teeth, and " + remainderOfWolfTeeth + " Wolf teeth in a seperate order.")
+            }
+            else{
+                console.log("For the wolf teeth, Buy " + remainderOfWolfTeeth + " Wolf teeth in a order.")
+            }
+            console.warn("The Golden Wolf Tooth Command was ran here. The estimated profit for it was " + Profit + " coins.")
+            console.log("This calculation was done assuming the player here was " + IGN + " and the tax rate for the player crafting is " + CoopTaxRate + ".");
         }
     }
-}
+}// Func "GoldToothFlipper" is at v0.9,v1 will occor when automatically taking the targetplayer's money is automatically detected along with the prices of every ietm listed. This is the final version for manual usage.
 
 /* Enderpearl flipperdoo: (PriceOfEPearls(Price of normal encanted ender pearls),
 PriceOfEnchantedEPearls(price of ehcanted ender pearls),MoneyAvailable(How much money target player is in posseion of),
@@ -79,10 +103,13 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable){ /
         console.log("Enchanted Ender Pearls have a higher margin than an Enchanted ender pearl from 20 normal enderpearls at this time, buy " + (MoneyAvailable/PriceOfEnchantedEPearls) + ".")
     }
     console.log("This Calculation was done assuming the player was " + IGN + " (to grab money available) and with the assumed tax rate of " + CoopTaxRate + ", if these are wrong ping/dm/create a issue ticket on my github" )
-} // Func "EPearlFlipper" is at v0.9,v1 will occor when automatically taking the targetplayer's money and tax rate and detecting and telling the website to say that its happened. this is the final version for manual
+}// Func "EPearlFlipper" is at v0.9.5,v1 will occor when automatically taking the targetplayer's money is automatically detected along with the prices of every ietm listed. This is the final version for manual usage.
+
+console.warn(BuildNumber);  //log build number into console
+document.getElementById("BuildPinger").innerHTML=BuildNumber;  //change the text of hytools.html from the page broken message to the build number
+
+/*-----------------------------------------         Explanation Area        -----------------------------------------*/
 // use this ""var difference = function (a, b) { return Math.abs(a - b); }"" and get this working properly as this works off of highest cost and not lowest cost, use the number generated and difference it by 200 then sort by lowsest for the answer and round the end number for no decimals//done// and if in eccess of 71680 say 1 full order and (excess stuff)//done// add player api key usage to get the page to respond when youve been outbid by someone else on the bazaar and the exact price and orders neccisary for each of the prics to 7.5 and up to 10
-console.warn(BuildNumber);
-document.getElementById("BuildPinger").innerHTML=BuildNumber;
 /*exp/copypasta zone
                num1                   num2
 (Math.abs(PriceOfEnchantedEPearls - 200)) // find difference of
