@@ -3,7 +3,7 @@ let PlayerAPIKey = "";
 let PlayerMoney = 2000;
 let IGN = "AngxlsInTheSkyy";
 let CoopTaxRate = 1.5;
-let ActualBuildNumber = "0.8.9.8.5"
+let ActualBuildNumber = "0.8.9.8.6"
 let BuildNumber = "AE\\HytoolsModule Build V" + ActualBuildNumber + " loaded";
 /*    begin fucntion area     */
 
@@ -23,6 +23,7 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
     }
     else if(EnchGoldFinalPrice>PriceOfGoldenTooth){
         console.warn("Gold Tooth crafting isn't profitable. Try again later, it might be profitable then.");
+        console.debug("EnchGoldVal, gold final price == " + EnchGoldFinalPrice + " gold is " + GoldFinalPrice + ".")
     }
     else{
         if (GoldFinalPrice<EnchGoldFinalPrice){
