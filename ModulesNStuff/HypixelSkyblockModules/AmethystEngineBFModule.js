@@ -3,7 +3,7 @@ let PlayerAPIKey = "";
 let PlayerMoney = 2000;
 let IGN = "AngxlsInTheSkyy";
 let CoopTaxRate = 1.5;
-let ActualBuildNumber = "0.8.9.8"
+let ActualBuildNumber = "0.8.9.8.5"
 let BuildNumber = "AE\\HytoolsModule Build V" + ActualBuildNumber + " loaded";
 /*    begin fucntion area     */
 
