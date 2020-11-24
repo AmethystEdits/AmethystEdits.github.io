@@ -3,7 +3,7 @@ let PlayerAPIKey = "";
 let PlayerMoney = 2000;
 let IGN = "AngxlsInTheSkyy";
 let CoopTaxRate = 1.5;
-let ActualBuildNumber = "0.8.9.8.7"
+let ActualBuildNumber = "0.8.9.8.8"
 let BuildNumber = "AE\\HytoolsModule Build V" + ActualBuildNumber + " loaded";
 /*    begin fucntion area     */
 
@@ -36,7 +36,7 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             // console.log(quotient + "quotient," + remainder + " remainder, " + Profit + " profit, "); debug options
             // console.log(GPX160 + "gpx + " ,EnchGoldFinalPrice + "enchgoldfilapprice + " ,GoldFinalPrice + "elseblocc" );
             let GoldAmount=((quotient*71680)+remainder)*32;
-            let WolfToothAmount=((quotient*71680)+remainder)*160;
+            let WolfToothAmount=((quotient*71680)+remainder)*128;
             let quotient2 = Math.floor(GoldAmount/71680);
             let remainder2 = Math.floor(GoldAmount % 71680);
             let quotient3 = Math.floor(WolfToothAmount/71680);
@@ -62,7 +62,7 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             let remainder = Math.floor((MoneyAvailable/EnchGoldFinalPrice) % 71680);
             let Profit = Math.floor((Math.floor(Math.abs(EnchGoldFinalPrice-PriceOfGoldenTooth)))*(MoneyAvailable/EnchGoldFinalPrice));
             let EnchGoldAmount=((quotient*71680)+remainder)*32;
-            let WolfToothAmount=((quotient*71680)+remainder)*160;
+            let WolfToothAmount=((quotient*71680)+remainder)*128;
             let quotientOfEnchGold = Math.floor(EnchGoldAmount/71680);
             let remainderOfEnchGold = Math.floor(EnchGoldAmount % 71680);
             let quotientOfWolfteeth = Math.floor(WolfToothAmount/71680);
