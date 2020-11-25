@@ -1,48 +1,41 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="100%, initial-scale=1.0">
-        <title>AE:\\Experiment</title>
-        <style>
-            /* Add some padding on document's body to prevent the content
-            to go underneath the header and footer */
-            body{        
-                padding-top: 60px;
-                padding-bottom: 40px;
-            }
-            .fixed-header{
-                width: 100%;
-                position: fixed;        
-                background: #333;
-                padding: 10px 0;
-                color: #fff;
-                top: 0;
-            }
-            #container{
-                width: 80%;
-                margin: 0 auto; /* Center the DIV horizontally */
-            }
-            nav a{
-                color: #fff;
-                text-decoration: none;
-                padding: 7px 25px;
-                display: inline-block;
-            }
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>help</title>
     </head>
     <body>
-        <div class="fixed-header">
-            <div id="container">
-                <nav>
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Products</a>
-                    <a href="#">Services</a>
-                    <a href="#">Contact Us</a>
-                </nav>
-            </div>
-        </div>
-        <p>pp poopoo</p>  
+        <p id="tom"></p>
+        <p id="peep"></p>
+        <script>
+            // const playeruuid="1cfb8d5f-e3af-42fb-8d41-c89e4e9b1f2c";
+            // let cheek="Watermelon";
+            // const endKey="6eeb433c-ceeb-4700-8ad7-8cf21c7d9caf";
+            // const itemWanted="ENDER_PEARL";
+            // const endURL="https://api.hypixel.net/skyblock/bazaar/key=" + endKey + "&productId=" + itemWanted;
+            // let cheese=0;
+            // async function GetRedstoneData(){
+            //     let Getit2 = await fetch('https://api.hypixel.net/skyblock/profiles?key=6eeb433c-ceeb-4700-8ad7-8cf21c7d9caf&uuid=1cfb8d5f-e3af-42fb-8d41-c89e4e9b1f2c');
+            //     let getItData2 = await Getit2.json();
+            //     console.log(getItData2)
+            //     for(let i=0;await getItData2.profiles[cheese].cute_name !== "Pear";cheese++){
+            //         console.log("In the for loop")
+            //     }
+            //     console.log("yippi kay yay motherfuuuuuuuuu")
+            //     console.log(getItData2.profiles[cheese].cute_name)
+            // }
+            // GetRedstoneData();
+            // console.log("cheese");
+            let poupee = "Ry2e0";
+            let poupoueee="https://api.mojang.com/users/profiles/minecraft/" + poupee + "?at=0";
+            async function peepee(){
+                let poopoo = await fetch(poupoueee)
+                let poupou = await poopoo.json();
+                console.log(poupou)
+            }
+        </script>
     </body>
-</html> -->
+</html>
+
+
