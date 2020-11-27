@@ -4,9 +4,17 @@
     src: local('fonts\Ubuntu Font\Ubuntu-Medium.ttf');
     font-family: 'Ubuntu';
 }
+.CodeBlock{
+    border:0.5mm solid #000000;
+    background-color:#222222;
+    color:green;
+    padding: 1mm;
+    border-radius: 2mm;
+    font-family: 'Poppins', sans-serif;
+}
 body{
-    background-color:rgb(58, 58, 58);
-    color:rgb(209, 209, 209);
+    background-color:#2f3136;
+    color:white;
     font-family:Raleway;
 }
 ::selection{
@@ -14,23 +22,59 @@ body{
     color:#000000;
 }
 h1{
-    color:white;
-    border: solid 2px;
-    border-color:rgb(163, 163, 163);
+    color:#ffffff;
+    border-bottom: solid 2px;
+    border-color:rgb(255, 255, 255);
     text-align: center;
     font-size: 2cm;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     border-radius: 1000px;
     border-width: 5px;
-    border-style: double;
-    border-collapse: collapse;
-    user-select:none;
+    user-select: none;
 }
 #BuildPingerStan{
     font-size: smaller;
-    background-color: white;
+    background-color: #8f9494;
     padding: 2mm;
 }
 #test{
     font-size:smaller;
+}
+#HyToolsByTitle{
+    position: relative;
+    font-size:small;
+}
+#EPearlTable{
+    width:100%;
+}
+th, td{
+    text-align: center;
+}
+.RainbowCodeFake{
+    background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+    text-align: center;
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    background-clip:text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 20s ease infinite;
+    border:0.5mm clip;
+    border-color: currentColor;
+    background-color:#222222;
+    padding: 1mm;
+    border-radius: 2mm;
+}
+.LightRainbow{
+    background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+    text-align: center;
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    background-clip:text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 20s ease infinite;
+}
+@keyframes rainbow { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 25%}
+    100%{background-position:0% 50%}
 }

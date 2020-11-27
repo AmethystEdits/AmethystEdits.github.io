@@ -3,26 +3,85 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Begin Grabbing fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
         <title>AE//Hytools</title>
         <link rel="stylesheet" href="HyToolsCSSF.css">
     </head>
     <body>
-        <h1>
-            Hytools
-        </h1>
-        <p id = "poopoo">
-            Check console for the useful part of this, typically opened by pressing f12 <br>
-            then pressing "console" on the top right of the new screen that just popped up<br>
-            using this is by entering the stuff below this text without the []s and the stuff inside them, once done typing this press enter <br>
-            also these ( , ) are commas <br>
-            EPearlFlipper([price you want to pay for normal ender pearls],[Price of enchanted ender pearls],[how much money you are willing to spend]); <br>
-            Example: EPearlFlipper(8.7,187.6,900000); <br><br><br>
-            GoldToothFlipper([price of enchanted gold], [price of normal gold], [price of wolf teeth], [price of golden wolf teeth], [how much money youre willing to spend])<br>
-            Example: GoldToothFlipper(1906,19.7,0.2,69999.6,280000)<br>
-            <br>
-            <br>
-            ill make this way better <i>someday</i> but until that day this is what youre stuck with
-        </p>
+        <h1 id="HyToolsTitle" class="LightRainbow">HyTools <span id="HyToolsByTitle" class="LightRainbow">By Amethyst</span></h1>
+        <div id="Explanation">
+            <h3 id="Expla">Explanation</h3>
+            <p>
+                To start HyTools, open console (opened with either F12, CTRL + SHIFT + I or right cicking anywhere on this page and clicking inspect then switching the view from "element" to "console") then type the following command:<br>
+            </p>
+            <p class="CodeBlock">
+                startEngine(*"your name in hypixel"*,*"your api key"*,*"Your Profile name with proper capitilisation"*);
+            </p>
+            <p>
+                Example:
+            </p>
+            <p class="CodeBlock">
+                startEngine("PewDiePie","9gdb4wf3c-c95feb-4sdfv00-8adfhgd7-8cfsdfg21c7d9caf","Watermelon");
+            </p>
+            <p>
+                As long as you don't see any errors after that, the "Awaiting start" boxes should now have values in them that match what is seen on hypixel. a kink of this is that the flippers accounts for your tax rate, so be mindful of that.
+            </p>
+            <p>
+                The numbers below that look like <span class="CodeBlock">this</span> are what is expected to be placed, as it is +0.1 coins above the current highest order. when it comes to wolf teeth, they are insta bought unless the money being spent on them has has a difference of 30k comparing insta buying to buy ordering. When asked to type your profile, it is exepected to be typed with proper capitilisation (Example: instead of typing watermelon type "Watermelon")
+            </p>
+        </div>
+        <div id="EPearlSection">
+            <table id="EPearlTable">
+                <caption>Ender Pearl Flipper</caption>
+                <tr>
+                    <th>Is it enchanted</th>
+                    <th>Money spent per Ender Pearl</th>
+                    <th>Amount of full orders to buy</th>
+                    <th>Amount of seperate items to buy</th>
+                    <th>Estimated Profit</th>
+                </tr>
+                <tr>
+                    <td id="IsEnchanted1">false</td>
+                    <td id="PerItem1">8.2</td>
+                    <td id="FullOrders1">2</td>
+                    <td id="SeperateItems1">3452</td>
+                    <td id="Profit1">209146</td>
+                </tr>
+                <tr>
+                    <td id="IsEnchanted2">false</td>
+                    <td id="PerItem2">8.1</td>
+                    <td id="FullOrders2">2</td>
+                    <td id="SeperateItems2">3452</td>
+                    <td id="Profit2">200146</td>
+                </tr>
+                <tr>
+                    <td class="CodeBlock" id="IsEnchanted3">false</td>
+                    <td class="CodeBlock" id="PerItem3">8</td>
+                    <td class="CodeBlock" id="FullOrders3">2</td>
+                    <td class="CodeBlock" id="SeperateItems3">3452</td>
+                    <td class="CodeBlock" id="Profit3">200146</td>
+                </tr>
+                <tr>
+                    <td id="IsEnchanted4">false</td>
+                    <td id="PerItem4">7.9</td>
+                    <td id="FullOrders4">2</td>
+                    <td id="SeperateItems4">3452</td>
+                    <td id="Profit4">200146</td>
+                </tr>
+                <tr>
+                    <td id="IsEnchanted5">false</td>
+                    <td id="PerItem5">7.8</td>
+                    <td id="FullOrders5">2</td>
+                    <td id="SeperateItems5">3452</td>
+                    <td id="Profit5">200146</td>
+                </tr>
+              </table>
+        </div>
+        <div id="GoldFlipperSection">
+
+        </div>
         <p id="BuildPinger">
             You shouldn't see this. If you can via inspect / F12, you're a nerd. If you can by just looking at the website normally, you'll wanna create an issue on my <stan id="BuildPingerStan"><a href="https://github.com/AmethystEdits/AmethystEdits.github.io/issues">Github Issues page.</a></stan>
         </p>
