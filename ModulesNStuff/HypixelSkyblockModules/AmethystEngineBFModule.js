@@ -23,39 +23,43 @@ let EnderPearlObject1={ //enderpearl object list
     FullOrders:0,
     SeperateItems:0,
     Profit:0,
-    EnchantedSuperior:false,
+    EnchantedSuperior:0,
 }
 let EnderPearlObject2={
     MoneyPP:0,
     FullOrders:0,
     SeperateItems:0,
     Profit:0,
-    EnchantedSuperior:false,
+    EnchantedSuperior:0,
 }
 let EnderPearlObject3={
     MoneyPP:0,
     FullOrders:0,
     SeperateItems:0,
     Profit:0,
-    EnchantedSuperior:false,
+    EnchantedSuperior:0,
 }
 let EnderPearlObject4={
     MoneyPP:0,
     FullOrders:0,
     SeperateItems:0,
     Profit:0,
-    EnchantedSuperior:false,
+    EnchantedSuperior:0,
 }
 let EnderPearlObject5={
     MoneyPP:0,
     FullOrders:0,
     SeperateItems:0,
     Profit:0,
-    EnchantedSuperior:false,
+    EnchantedSuperior:0,
 }
 
+//Gold Tooth Object List
+
+
+
 let CoopTaxRate = 1.5;
-let ActualBuildNumber = "0.9.5"
+let ActualBuildNumber = "0.9.5.1"
 let BuildNumber = "Amethyst Engine://HytoolsModule Build V" + ActualBuildNumber + " loaded // Unstable // Crude Automation Update";
 
 /*----------     Begin Hypixel Skybock Bazaar grabbing area     ----------*/
@@ -102,7 +106,7 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
     
         //Begin Changing the values of the HTML file
         /*------------------------------     Object 1     ------------------------------*/
-        if (EnderPearlObject1.EnchantedSuperior){
+        if (EnderPearlObject1.EnchantedSuperior === 1){
             document.getElementById("IsEnchanted1").innerHTML="Yes"
         }
         else{
@@ -114,7 +118,7 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
         document.getElementById("Profit1").innerHTML=EnderPearlObject1.Profit;
         
         /*------------------------------     Object 2     ------------------------------*/
-        if (EnderPearlObject2.EnchantedSuperior){
+        if (EnderPearlObject2.EnchantedSuperio === 1){
             document.getElementById("IsEnchanted2").innerHTML="Yes"
         }
         else{
@@ -126,7 +130,7 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
         document.getElementById("Profit2").innerHTML=EnderPearlObject2.Profit;
         
         /*------------------------------     Object 3     ------------------------------*/
-        if (EnderPearlObject3.EnchantedSuperior){
+        if (EnderPearlObject3.EnchantedSuperior === 1){
             document.getElementById("IsEnchanted3").innerHTML="Yes"
         }
         else{
@@ -138,7 +142,7 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
         document.getElementById("Profit3").innerHTML=EnderPearlObject3.Profit;
         
         /*------------------------------     Object 4     ------------------------------*/
-        if (EnderPearlObject4.EnchantedSuperior){
+        if (EnderPearlObject4.EnchantedSuperior === 1){
             document.getElementById("IsEnchanted4").innerHTML="Yes"
         }
         else{
@@ -150,7 +154,7 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
         document.getElementById("Profit4").innerHTML=EnderPearlObject4.Profit;
         
         /*------------------------------     Object 5     ------------------------------*/
-        if (EnderPearlObject5.EnchantedSuperior){
+        if (EnderPearlObject5.EnchantedSuperior === 1){
             document.getElementById("IsEnchanted5").innerHTML="Yes"
         }
         else{
@@ -264,7 +268,7 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
         if (EPPX20<PriceOfEnchantedEPearls){
             let quotient = Math.floor((MoneyAvailable/PriceOfEPearls)/71680);
             let remainder = Math.floor((MoneyAvailable/PriceOfEPearls) % 71680);
-            let Profit = Math.floor((Math.floor(Math.abs(PriceOfEPearls-10)))*(MoneyAvailable/PriceOfEPearls));
+            let Profit = Math.floor((Math.abs(PriceOfEPearls-10))*(MoneyAvailable/PriceOfEPearls));
             if ((MoneyAvailable/PriceOfEPearls)>71680){
                 console.log("EPearlFlipper.Normal: Full Orders == " + quotient + ", Seperate Items == " + remainder + ", Profit == " + Profit + ".");
             }
@@ -276,35 +280,35 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
                 EnderPearlObject1.FullOrders = quotient;
                 EnderPearlObject1.SeperateItems = remainder;
                 EnderPearlObject1.Profit = Profit;
-                EnchantedSuperior:false;
+                EnchantedSuperior:0;
             }
             else if(ObjectValue===2){
                 EnderPearlObject2.MoneyPP = Math.round(CleanEPearls * 10)/10;
                 EnderPearlObject2.FullOrders = quotient;
                 EnderPearlObject2.SeperateItems = remainder;
                 EnderPearlObject2.Profit = Profit;
-                EnchantedSuperior:false;
+                EnchantedSuperior:0;
             }
             else if(ObjectValue===3){
                 EnderPearlObject3.MoneyPP = Math.round(CleanEPearls * 10)/10;
                 EnderPearlObject3.FullOrders = quotient;
                 EnderPearlObject3.SeperateItems = remainder;
                 EnderPearlObject3.Profit = Profit;
-                EnchantedSuperior:false;
+                EnchantedSuperior:0;
             }
             else if(ObjectValue===4){
                 EnderPearlObject4.MoneyPP = Math.round(CleanEPearls * 10)/10;
                 EnderPearlObject4.FullOrders = quotient;
                 EnderPearlObject4.SeperateItems = remainder;
                 EnderPearlObject4.Profit = Profit;
-                EnchantedSuperior:false;
+                EnchantedSuperior:0;
             }
             else if(ObjectValue===5){
                 EnderPearlObject5.MoneyPP = Math.round(CleanEPearls * 10)/10;
                 EnderPearlObject5.FullOrders = quotient;
                 EnderPearlObject5.SeperateItems = remainder;
                 EnderPearlObject5.Profit = Profit;
-                EnchantedSuperior:false;
+                EnchantedSuperior:0;
             }
             else{
                 console.warn("Invalid Object Value has been entered into module EnderPearlFlipper. ObjectValue == " + ObjectValue + ", Enchanted Ender Pearls here. Report this bug to my github as it is really breaking the HyTools system.")
@@ -314,7 +318,7 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
         else{
             let quotient = Math.floor((MoneyAvailable/PriceOfEnchantedEPearls)/71680);
             let remainder = Math.floor((MoneyAvailable/PriceOfEnchantedEPearls) % 71680);
-            let Profit = Math.floor((Math.floor(Math.abs(PriceOfEnchantedEPearls-10)))*(MoneyAvailable/PriceOfEnchantedEPearls));
+            let Profit = Math.floor((Math.abs(PriceOfEnchantedEPearls-10))*(MoneyAvailable/PriceOfEnchantedEPearls));
             if ((MoneyAvailable/PriceOfEnchantedEPearls)>71680){
                 console.log("EnderPearlFlipper.Enchanted: Full Orders == " + quotient + ", Seperate Items == " + remainder + ", Profit == " + Profit + ".");
             }
@@ -326,35 +330,35 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
                 EnderPearlObject1.FullOrders = quotient;
                 EnderPearlObject1.SeperateItems = remainder;
                 EnderPearlObject1.Profit = Profit;
-                EnchantedSuperior:true;
+                EnchantedSuperior:1;
             }
             else if(ObjectValue===2){
                 EnderPearlObject2.MoneyPP = Math.round(CleanEEPearls * 10)/10;
                 EnderPearlObject2.FullOrders = quotient;
                 EnderPearlObject2.SeperateItems = remainder;
                 EnderPearlObject2.Profit = Profit;
-                EnchantedSuperior:true;
+                EnchantedSuperior:1;
             }
             else if(ObjectValue===3){
                 EnderPearlObject3.MoneyPP = Math.round(CleanEEPearls * 10)/10;
                 EnderPearlObject3.FullOrders = quotient;
                 EnderPearlObject3.SeperateItems = remainder;
                 EnderPearlObject3.Profit = Profit;
-                EnchantedSuperior:true;
+                EnchantedSuperior:1;
             }
             else if(ObjectValue===4){
                 EnderPearlObject4.MoneyPP = Math.round(CleanEEPearls * 10)/10;
                 EnderPearlObject4.FullOrders = quotient;
                 EnderPearlObject4.SeperateItems = remainder;
                 EnderPearlObject4.Profit = Profit;
-                EnchantedSuperior:true;
+                EnchantedSuperior:1;
             }
             else if(ObjectValue===5){
                 EnderPearlObject5.MoneyPP = Math.round(CleanEEPearls * 10)/10;
                 EnderPearlObject5.FullOrders = quotient;
                 EnderPearlObject5.SeperateItems = remainder;
                 EnderPearlObject5.Profit = Profit;
-                EnchantedSuperior:true;
+                EnchantedSuperior:1;
             }
         }
         console.log("----------------------------------->>     EPearlFlipper Call Finished     <<------------------------------")
