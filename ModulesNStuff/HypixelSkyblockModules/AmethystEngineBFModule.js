@@ -55,15 +55,10 @@ let EnderPearlObject5={
 }
 
 let CoopTaxRate = 1.5;
-let ActualBuildNumber = "0.8.9.8.8"
-let BuildNumber = "AE\\HytoolsModule Build V" + ActualBuildNumber + " loaded";
+let ActualBuildNumber = "0.9.5"
+let BuildNumber = "Amethyst Engine://HytoolsModule Build V" + ActualBuildNumber + " loaded // Unstable // Crude Automation Update";
 
 /*----------     Begin Hypixel Skybock Bazaar grabbing area     ----------*/
-
-
-
-
-
 
 async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_Gonna_Flip_On){
     Player.IGN=Your_Name_In_Game;
@@ -107,35 +102,60 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
     
         //Begin Changing the values of the HTML file
         /*------------------------------     Object 1     ------------------------------*/
-        document.getElementById("IsEnchanted1").innerHTML=EnderPearlObject1.EnchantedSuperior;
+        if (EnderPearlObject1.EnchantedSuperior){
+            document.getElementById("IsEnchanted1").innerHTML="Yes"
+        }
+        else{
+            document.getElementById("IsEnchanted1").innerHTML="No"
+        }
         document.getElementById("PerItem1").innerHTML=EnderPearlObject1.MoneyPP;
         document.getElementById("FullOrders1").innerHTML=EnderPearlObject1.FullOrders;
         document.getElementById("SeperateItems1").innerHTML=EnderPearlObject1.SeperateItems;
         document.getElementById("Profit1").innerHTML=EnderPearlObject1.Profit;
         
         /*------------------------------     Object 2     ------------------------------*/
-        document.getElementById("IsEnchanted2").innerHTML=EnderPearlObject2.EnchantedSuperior;
+        if (EnderPearlObject2.EnchantedSuperior){
+            document.getElementById("IsEnchanted2").innerHTML="Yes"
+        }
+        else{
+            document.getElementById("IsEnchanted2").innerHTML="No"
+        }
         document.getElementById("PerItem2").innerHTML=EnderPearlObject2.MoneyPP;
         document.getElementById("FullOrders2").innerHTML=EnderPearlObject2.FullOrders;
         document.getElementById("SeperateItems2").innerHTML=EnderPearlObject2.SeperateItems;
         document.getElementById("Profit2").innerHTML=EnderPearlObject2.Profit;
         
         /*------------------------------     Object 3     ------------------------------*/
-        document.getElementById("IsEnchanted3").innerHTML=EnderPearlObject3.EnchantedSuperior;
+        if (EnderPearlObject3.EnchantedSuperior){
+            document.getElementById("IsEnchanted3").innerHTML="Yes"
+        }
+        else{
+            document.getElementById("IsEnchanted3").innerHTML="No"
+        }
         document.getElementById("PerItem3").innerHTML=EnderPearlObject3.MoneyPP;
         document.getElementById("FullOrders3").innerHTML=EnderPearlObject3.FullOrders;
         document.getElementById("SeperateItems3").innerHTML=EnderPearlObject3.SeperateItems;
         document.getElementById("Profit3").innerHTML=EnderPearlObject3.Profit;
         
         /*------------------------------     Object 4     ------------------------------*/
-        document.getElementById("IsEnchanted4").innerHTML=EnderPearlObject4.EnchantedSuperior;
+        if (EnderPearlObject4.EnchantedSuperior){
+            document.getElementById("IsEnchanted4").innerHTML="Yes"
+        }
+        else{
+            document.getElementById("IsEnchanted4").innerHTML="No"
+        }
         document.getElementById("PerItem4").innerHTML=EnderPearlObject4.MoneyPP;
         document.getElementById("FullOrders4").innerHTML=EnderPearlObject4.FullOrders;
         document.getElementById("SeperateItems4").innerHTML=EnderPearlObject4.SeperateItems;
         document.getElementById("Profit4").innerHTML=EnderPearlObject4.Profit;
         
         /*------------------------------     Object 5     ------------------------------*/
-        document.getElementById("IsEnchanted5").innerHTML=EnderPearlObject5.EnchantedSuperior;
+        if (EnderPearlObject5.EnchantedSuperior){
+            document.getElementById("IsEnchanted5").innerHTML="Yes"
+        }
+        else{
+            document.getElementById("IsEnchanted5").innerHTML="No"
+        }
         document.getElementById("PerItem5").innerHTML=EnderPearlObject5.MoneyPP;
         document.getElementById("FullOrders5").innerHTML=EnderPearlObject5.FullOrders;
         document.getElementById("SeperateItems5").innerHTML=EnderPearlObject5.SeperateItems;
@@ -246,10 +266,10 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
             let remainder = Math.floor((MoneyAvailable/PriceOfEPearls) % 71680);
             let Profit = Math.floor((Math.floor(Math.abs(PriceOfEPearls-10)))*(MoneyAvailable/PriceOfEPearls));
             if ((MoneyAvailable/PriceOfEPearls)>71680){
-                console.log("Normal ender pearls are best at this time, buy " + quotient + " buy order/s of 71680 and " + remainder + " items for the last order for a estimated " + Profit + " coins of profit.");
+                console.log("EPearlFlipper.Normal: Full Orders == " + quotient + ", Seperate Items == " + remainder + ", Profit == " + Profit + ".");
             }
             else{
-                console.log("Normal ender pearls crafted into enchanted ender pearls and sold to the npc are best right now, buy " + Math.floor(MoneyAvailable/PriceOfEPearls) +  " for a estimated " + Profit + " coins of profit.")
+                console.log("EPEarlFlipper.Normal: Full Orders == 0, Seperate Items = " + Math.floor(MoneyAvailable/PriceOfEPearls) + ", Profit == " + Profit + ".")
             }
             if (ObjectValue===1) {
                 EnderPearlObject1.MoneyPP = Math.round(CleanEPearls * 10)/10;
@@ -296,10 +316,10 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
             let remainder = Math.floor((MoneyAvailable/PriceOfEnchantedEPearls) % 71680);
             let Profit = Math.floor((Math.floor(Math.abs(PriceOfEnchantedEPearls-10)))*(MoneyAvailable/PriceOfEnchantedEPearls));
             if ((MoneyAvailable/PriceOfEnchantedEPearls)>71680){
-                console.log("Enchanted ender pearls are best at this time, buy " + quotient + " buy order/s of 71680 and " + remainder + " items for the last order for a estimated " + Profit + " coins of profit.");
+                console.log("EnderPearlFlipper.Enchanted: Full Orders == " + quotient + ", Seperate Items == " + remainder + ", Profit == " + Profit + ".");
             }
             else{
-                console.log("Enchanted ender pearls crafted into enchanted ender pearls and sold to the npc are best right now, buy " + Math.floor(MoneyAvailable/PriceOfEnchantedEPearls) +  " for a estimated " + Profit + " coins of profit.")
+                console.log("EnderPearlFlipper.Enchanted: Full Orders == 0, Seperate Items == " + Math.floor(MoneyAvailable/PriceOfEnchantedEPearls) + ", Profit == " + Profit)
             }
             if(ObjectValue===1){
                 EnderPearlObject1.MoneyPP = Math.round(CleanEEPearls * 10)/10;
@@ -337,7 +357,7 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
                 EnchantedSuperior:true;
             }
         }
-        console.log("This Calculation was done assuming the player was " + Player.IGN + " (to grab money available) and with the assumed tax rate of " + CoopTaxRate + ", if these are wrong ping/dm/create a issue ticket on my github" )
+        console.log("----------------------------------->>     EPearlFlipper Call Finished     <<------------------------------")
     }
     
 }// Func "EPearlFlipper" is at v0.9.5,v1 will occor when automatically taking the targetplayer's money is automatically detected along with the prices of every ietm listed. This is the final version for manual usage.
