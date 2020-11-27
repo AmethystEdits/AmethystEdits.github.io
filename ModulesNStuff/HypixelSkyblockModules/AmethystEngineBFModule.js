@@ -146,6 +146,7 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
     /*------------------------------     Function-Dependant Values Area     ------------------------------*/
     Player.UUID = await GetUUID();
     GetAndReplaceData()
+    setInterval(GetAndReplaceData,3000)
 }
 /*    begin fucntion area     */
 function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGoldenTooth,MoneyAvailable){
