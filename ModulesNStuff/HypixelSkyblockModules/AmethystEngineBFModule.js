@@ -13,7 +13,7 @@ let EnchantedEnderPearlPrice=0;
 let GoldPrice=0;
 let EnchantedGoldPrice=0;
 let WolfToothPrice=0;
-let EnchantedWolfToothPrice=0;
+let GoldToothPrice=0;
 
 // Extra Vals
 let MoneyGrabbingForState=0;
@@ -55,12 +55,61 @@ let EnderPearlObject5={
 }
 
 //Gold Tooth Object List
-
+let GoldToothObject1={
+    EnchantedSuperior:0,
+    PricePerWolfTooth:0,
+    PricePerGoldIngot:0,
+    SeperateWolfToothItems:0,
+    FullOrderWolfTeethItems:0,
+    SeperateGoldIngotItems:0,
+    FullOrderGoldIngotsItems:0,
+    Profit:0,
+}
+let GoldToothObject2={
+    EnchantedSuperior:0,
+    PricePerWolfTooth:0,
+    PricePerGoldIngot:0,
+    SeperateWolfToothItems:0,
+    FullOrderWolfTeethItems:0,
+    SeperateGoldIngotItems:0,
+    FullOrderGoldIngotsItems:0,
+    Profit:0,
+}
+let GoldToothObject3={
+    EnchantedSuperior:0,
+    PricePerWolfTooth:0,
+    PricePerGoldIngot:0,
+    SeperateWolfToothItems:0,
+    FullOrderWolfTeethItems:0,
+    SeperateGoldIngotItems:0,
+    FullOrderGoldIngotsItems:0,
+    Profit:0,
+}
+let GoldToothObject4={
+    EnchantedSuperior:0,
+    PricePerWolfTooth:0,
+    PricePerGoldIngot:0,
+    SeperateWolfToothItems:0,
+    FullOrderWolfTeethItems:0,
+    SeperateGoldIngotItems:0,
+    FullOrderGoldIngotsItems:0,
+    Profit:0,
+}
+let GoldToothObject5={
+    EnchantedSuperior:0,
+    PricePerWolfTooth:0,
+    PricePerGoldIngot:0,
+    SeperateWolfToothItems:0,
+    FullOrderWolfTeethItems:0,
+    SeperateGoldIngotItems:0,
+    FullOrderGoldIngotsItems:0,
+    Profit:0,
+}
 
 
 let CoopTaxRate = 1.5;
-let ActualBuildNumber = "0.9.5.1.1"
-let BuildNumber = "Amethyst Engine://HytoolsModule Build V" + ActualBuildNumber + " loaded // Unstable // Crude Automation Update";
+let ActualBuildNumber = "0.9.6"
+let BuildNumber = "Amethyst Engine://HytoolsModule Build V" + ActualBuildNumber + " loaded // Unstable";
 
 /*----------     Begin Hypixel Skybock Bazaar grabbing area     ----------*/
 
@@ -165,21 +214,121 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
         document.getElementById("SeperateItems5").innerHTML=EnderPearlObject5.SeperateItems;
         document.getElementById("Profit5").innerHTML=EnderPearlObject5.Profit;
         
+        //Gold tooth flipper area
+    let GrabGoldIngotJSON = await fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + Player.APIKey + "&productId=GOLD_INGOT");
+    let GoldIngotJSON = await GrabGoldIngotJSON.json()
+    GoldPrice = await (GoldIngotJSON.product_info.buy_summary[0].pricePerUnit)+0.1;
+    let GrabEnchantedGoldJSON = await fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + Player.APIKey + "&productId=ENCHANTED_GOLD");
+    let EnchantedGoldJSON = await GrabEnchantedGoldJSON.json()
+    EnchantedGoldPrice = await (EnchantedGoldJSON.product_info.buy_summary[0].pricePerUnit)+0.1;
+    let GrabWolfToothJSON = await fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + Player.APIKey + "&productId=WOLF_TOOTH");
+    let WolfToothJSON = await GrabWolfToothJSON.json()
+    WolfToothPrice = await (WolfToothJSON.product_info.buy_summary[0].pricePerUnit)+0.1;
+    let GrabGoldToothJSON = await fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + Player.APIKey + "&productId=GOLDEN_TOOTH");
+    let GoldToothJSON = await GrabGoldToothJSON.json()
+    GoldToothPrice = await (GoldToothJSON.product_info.buy_summary[0].pricePerUnit)+0.1;
+
+    //Call the function
+    GoldToothFlipper((EnchantedGoldPrice + 0.2),(GoldPrice+0.2),(WolfToothPrice+0.2),GoldToothPrice,Player.Money,1)
+    GoldToothFlipper((EnchantedGoldPrice + 0.1),(GoldPrice+0.1),(WolfToothPrice+0.1),GoldToothPrice,Player.Money,2)
+    GoldToothFlipper(EnchantedGoldPrice,GoldPrice,WolfToothPrice,GoldToothPrice,Player.Money,3)
+    GoldToothFlipper((EnchantedGoldPrice - 0.1),(GoldPrice-0.1),(WolfToothPrice-0.1),GoldToothPrice,Player.Money,4)
+    GoldToothFlipper((EnchantedGoldPrice - 0.2),(GoldPrice-0.2),(WolfToothPrice-0.2),GoldToothPrice,Player.Money,5)
+
+    //Change the values on the html file (ps havent even done them yet lol *sad face*)
+    /*------------------------------     Object 1     ------------------------------*/
+    if (GoldToothObject1.EnchantedSuperior==1){
+        document.getElementById("1Enchanted").innerHTML="Yes"
+    }
+    else{
+        document.getElementById("1Enchanted").innerHTML="No"
+    }
+    document.getElementById("1WolfToothPrice").innerHTML=GoldToothObject1.PricePerWolfTooth
+    document.getElementById("1GoldPrice").innerHTML=GoldToothObject1.PricePerGoldIngot
+    document.getElementById("1SeperateWolfTeeth").innerHTML=GoldToothObject1.SeperateWolfToothItems
+    document.getElementById("1FullOrderWolfTeeth").innerHTML=GoldToothObject1.FullOrderWolfTeethItems
+    document.getElementById("1SeperateGold").innerHTML=GoldToothObject1.SeperateGoldIngotItems
+    document.getElementById("1FullOrdersGold").innerHTML=GoldToothObject1.FullOrderGoldIngotsItems
+    document.getElementById("1Profit").innerHTML=GoldToothObject1.Profit
+    
+    /*------------------------------     Object 2     ------------------------------*/
+    if (GoldToothObject2.EnchantedSuperior==1){
+        document.getElementById("2Enchanted").innerHTML="Yes"
+    }
+    else{
+        document.getElementById("2Enchanted").innerHTML="No"
+    }
+    document.getElementById("2WolfToothPrice").innerHTML=GoldToothObject2.PricePerWolfTooth
+    document.getElementById("2GoldPrice").innerHTML=GoldToothObject2.PricePerGoldIngot
+    document.getElementById("2SeperateWolfTeeth").innerHTML=GoldToothObject2.SeperateWolfToothItems
+    document.getElementById("2FullOrderWolfTeeth").innerHTML=GoldToothObject2.FullOrderWolfTeethItems
+    document.getElementById("2SeperateGold").innerHTML=GoldToothObject2.SeperateGoldIngotItems
+    document.getElementById("2FullOrdersGold").innerHTML=GoldToothObject2.FullOrderGoldIngotsItems
+    document.getElementById("2Profit").innerHTML=GoldToothObject2.Profit
+
+    /*------------------------------     Object 3     ------------------------------*/
+    if (GoldToothObject3.EnchantedSuperior==1){
+        document.getElementById("3Enchanted").innerHTML="Yes"
+    }
+    else{
+        document.getElementById("3Enchanted").innerHTML="No"
+    }
+    document.getElementById("3WolfToothPrice").innerHTML=GoldToothObject3.PricePerWolfTooth
+    document.getElementById("3GoldPrice").innerHTML=GoldToothObject3.PricePerGoldIngot
+    document.getElementById("3SeperateWolfTeeth").innerHTML=GoldToothObject3.SeperateWolfToothItems
+    document.getElementById("3FullOrderWolfTeeth").innerHTML=GoldToothObject3.FullOrderWolfTeethItems
+    document.getElementById("3SeperateGold").innerHTML=GoldToothObject3.SeperateGoldIngotItems
+    document.getElementById("3FullOrdersGold").innerHTML=GoldToothObject3.FullOrderGoldIngotsItems
+    document.getElementById("3Profit").innerHTML=GoldToothObject3.Profit
+
+    /*------------------------------     Object 4     ------------------------------*/
+    if (GoldToothObject4.EnchantedSuperior==1){
+        document.getElementById("4Enchanted").innerHTML="Yes"
+    }
+    else{
+        document.getElementById("4Enchanted").innerHTML="No"
+    }
+    document.getElementById("4WolfToothPrice").innerHTML=GoldToothObject4.PricePerWolfTooth
+    document.getElementById("4GoldPrice").innerHTML=GoldToothObject4.PricePerGoldIngot
+    document.getElementById("4SeperateWolfTeeth").innerHTML=GoldToothObject4.SeperateWolfToothItems
+    document.getElementById("4FullOrderWolfTeeth").innerHTML=GoldToothObject4.FullOrderWolfTeethItems
+    document.getElementById("4SeperateGold").innerHTML=GoldToothObject4.SeperateGoldIngotItems
+    document.getElementById("4FullOrdersGold").innerHTML=GoldToothObject4.FullOrderGoldIngotsItems
+    document.getElementById("4Profit").innerHTML=GoldToothObject4.Profit
+
+    /*------------------------------     Object 5     ------------------------------*/
+    if (GoldToothObject5.EnchantedSuperior==1){
+        document.getElementById("5Enchanted").innerHTML="Yes"
+    }
+    else{
+        document.getElementById("5Enchanted").innerHTML="No"
+    }
+    document.getElementById("5WolfToothPrice").innerHTML=GoldToothObject5.PricePerWolfTooth
+    document.getElementById("5GoldPrice").innerHTML=GoldToothObject5.PricePerGoldIngot
+    document.getElementById("5SeperateWolfTeeth").innerHTML=GoldToothObject5.SeperateWolfToothItems
+    document.getElementById("5FullOrderWolfTeeth").innerHTML=GoldToothObject5.FullOrderWolfTeethItems
+    document.getElementById("5SeperateGold").innerHTML=GoldToothObject5.SeperateGoldIngotItems
+    document.getElementById("5FullOrdersGold").innerHTML=GoldToothObject5.FullOrderGoldIngotsItems
+    document.getElementById("5Profit").innerHTML=GoldToothObject5.Profit
     }
 
     /*------------------------------     Function-Dependant Values Area     ------------------------------*/
     Player.UUID = await GetUUID();
     GetAndReplaceData()
     setInterval(GetAndReplaceData,5000)
+
 }
 /*    begin fucntion area     */
-function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGoldenTooth,MoneyAvailable){
-    PriceOfGold = PriceOfGold+(CoopTaxRate/100)*PriceOfGold;
-    PriceOfEnchGold = PriceOfEnchGold+(CoopTaxRate/100)*PriceOfEnchGold;
-    PriceOfWolfTeeth = PriceOfWolfTeeth+(CoopTaxRate/100)*PriceOfWolfTeeth;
+function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGoldenTooth,MoneyAvailable,ObjectValue){
+    CleanGoldPrice = PriceOfGold;
+    PriceOfGold = CleanGoldPrice+(CoopTaxRate/100)*CleanGoldPrice;
+    CleanEnchGoldPrice=PriceOfEnchGold;
+    PriceOfEnchGold = CleanEnchGoldPrice+(CoopTaxRate/100)*CleanEnchGoldPrice;
+    CleanWolfTeethPrice = PriceOfWolfTeeth;
+    PriceOfWolfTeeth = CleanWolfTeethPrice+(CoopTaxRate/100)*CleanWolfTeethPrice;
     let GPX160 /* gold price time 160 to convert from gold ingot toenchanted golden ingot */ = PriceOfGold*160;
-    let EnchGoldFinalPrice = (PriceOfEnchGold*32)+(PriceOfWolfTeeth*320);
-    let GoldFinalPrice = (GPX160*32)+(PriceOfWolfTeeth*320);
+    let EnchGoldFinalPrice = (PriceOfEnchGold*32)+(PriceOfWolfTeeth*128);
+    let GoldFinalPrice = (GPX160*32)+(PriceOfWolfTeeth*128);
     let Checker1 = 0;
     if (GoldFinalPrice>PriceOfGoldenTooth){
         Checker1++;
@@ -203,17 +352,72 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             let remainder2 = Math.floor(GoldAmount % 71680);
             let quotient3 = Math.floor(WolfToothAmount/71680);
             let remainder3 = Math.floor(WolfToothAmount % 71680);
-            if (GoldAmount>71680){
-                console.log("Buying the ingredients for gold teeth is profitable right now. Buy " + quotient2 + " full buy orders of REGUALAR gold, and " + remainder2 + " gold ingots in a seperate order.")
+
+            if(GoldAmount>71680 && WolfToothAmount>71680){
+                console.log("GoldToothFlipper.Regular: FullOrders.Gold == " + quotient2 + ", SeperateItems.gold == " + remainder2 + ", FullOrders.WolfTeeth == " + quotient3 + ", SeperateItems.WolfTeeth == " + remainder3 + ", Profit expected == " + Profit + ".")
+            }
+            else if(GoldAmount<71680 && WolfToothAmount>71680){
+                console.log("GoldToothFlipper.Regular: FullOrders.Gold == 0, SeperateItems.Gold == " + remainder2 + ", FullOrders.WolfTeeth == " + quotient3 + ", SeperateItems.WolfTeeth == " + remainder3 + ", Profit Expected == " + Profit + ".")
+            }
+            else if(GoldAmount<71680 && WolfToothAmount<71680){
+                console.log("GoldToothFlipper.Regular: FullOrders.Gold == 0, SeperateItems.Gold == " + remainder2 + ", FullOrders.WolfTeeth == 0, SeperateItems.WolfTeeth == " + remainder3 + ", Profit Expected == " + Profit + ".")
             }
             else{
-                console.log("Buying the ingredients for gold teeth is profitable right now. Buy " + remainder2 + " gold ingots in a order.")
+                console.warn("No available if / else if slot for CodeWrite Automation Update Regualr gold area. Sub Module == GoldenTooth Flipper")
             }
-            if(WolfToothAmount>71680){
-                console.log("For the wolf teeth, Buy " + quotient3 + " full buy orders of REGUALAR Wolf Teeth, and " + remainder3 + " Wolf teeth in a seperate order.")
+
+            if (ObjectValue===1){
+                GoldToothObject1.EnchantedSuperior=0;
+                GoldToothObject1.PricePerWolfTooth= Math.round(CleanWolfTeethPrice * 10)/10;
+                GoldToothObject1.PricePerGoldIngot=Math.round(CleanGoldPrice * 10)/10;
+                GoldToothObject1.SeperateWolfToothItems=remainder3;
+                GoldToothObject1.FullOrderWolfTeethItems=quotient3;
+                GoldToothObject1.SeperateGoldIngotItems=remainder2;
+                GoldToothObject1.FullOrderGoldIngotsItems=quotient2;
+                GoldToothObject1.Profit=Profit;
+            }
+            else if (ObjectValue===2){
+                GoldToothObject2.EnchantedSuperior=0;
+                GoldToothObject2.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
+                GoldToothObject2.PricePerGoldIngot=Math.round(CleanGoldPrice * 10)/10;
+                GoldToothObject2.SeperateWolfToothItems=remainder3;
+                GoldToothObject2.FullOrderWolfTeethItems=quotient3;
+                GoldToothObject2.SeperateGoldIngotItems=remainder2;
+                GoldToothObject2.FullOrderGoldIngotsItems=quotient2;
+                GoldToothObject2.Profit=Profit;
+            }
+            else if (ObjectValue===3){
+                GoldToothObject3.EnchantedSuperior=0;
+                GoldToothObject3.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
+                GoldToothObject3.PricePerGoldIngot=Math.round(CleanGoldPrice * 10)/10;
+                GoldToothObject3.SeperateWolfToothItems=remainder3;
+                GoldToothObject3.FullOrderWolfTeethItems=quotient3;
+                GoldToothObject3.SeperateGoldIngotItems=remainder2;
+                GoldToothObject3.FullOrderGoldIngotsItems=quotient2;
+                GoldToothObject3.Profit=Profit;
+            }
+            else if (ObjectValue===4){
+                GoldToothObject4.EnchantedSuperior=0;
+                GoldToothObject4.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
+                GoldToothObject4.PricePerGoldIngot=Math.round(CleanGoldPrice * 10)/10;
+                GoldToothObject4.SeperateWolfToothItems=remainder3;
+                GoldToothObject4.FullOrderWolfTeethItems=quotient3;
+                GoldToothObject4.SeperateGoldIngotItems=remainder2;
+                GoldToothObject4.FullOrderGoldIngotsItems=quotient2;
+                GoldToothObject4.Profit=Profit;
+            }
+            else if (ObjectValue===5){
+                GoldToothObject5.EnchantedSuperior=0;
+                GoldToothObject5.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
+                GoldToothObject5.PricePerGoldIngot=Math.round(CleanGoldPrice * 10)/10;
+                GoldToothObject5.SeperateWolfToothItems=remainder3;
+                GoldToothObject5.FullOrderWolfTeethItems=quotient3;
+                GoldToothObject5.SeperateGoldIngotItems=remainder2;
+                GoldToothObject5.FullOrderGoldIngotsItems=quotient2;
+                GoldToothObject5.Profit=Profit;
             }
             else{
-                console.log("For the wolf teeth, Buy " + remainder3 + " Wolf teeth in a order.")
+                console.log("Invalid object number entered into gold tooth flipper. object value == " + ObjectValue)
             }
             console.warn("The Golden Wolf Tooth Command was ran here. The estimated profit for it was " + Profit + " coins.")
             console.log("This calculation was done assuming the player here was " + Player.IGN + " and the tax rate for the player crafting is " + CoopTaxRate + ".");
@@ -229,22 +433,76 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             let remainderOfEnchGold = Math.floor(EnchGoldAmount % 71680);
             let quotientOfWolfteeth = Math.floor(WolfToothAmount/71680);
             let remainderOfWolfTeeth = Math.floor(WolfToothAmount % 71680);
-            if (EnchGoldAmount>71680){
-                console.log("Buying the ingredients for gold teeth is profitable right now. Buy " + quotientOfEnchGold + " full buy orders of ENCHANTED gold, and " + remainderOfEnchGold + " gold ingots in a seperate order.")
+
+            if(EnchGoldAmount>71680 && WolfToothAmount>71680){
+                console.log("GoldToothFlipper.Enchanted: FullOrders.Gold == " + quotientOfEnchGold + ", SeperateItems.gold == " + remainderOfEnchGold + ", FullOrders.WolfTeeth == " + quotientOfWolfteeth + ", SeperateItems.WolfTeeth == " + remainderOfWolfTeeth + ", Profit expected == " + Profit + ".")
+            }
+            else if(EnchGoldAmount<71680 && WolfToothAmount>71680){
+                console.log("GoldToothFlipper.Enchanted: FullOrders.Gold == 0, SeperateItems.Gold == " + remainderOfEnchGold + ", FullOrders.WolfTeeth == " + quotientOfWolfteeth + ", SeperateItems.WolfTeeth == " + remainderOfWolfTeeth + ", Profit Expected == " + Profit + ".")
+            }
+            else if(EnchGoldAmount<71680 && WolfToothAmount<71680){
+                console.log("GoldToothFlipper.Enchanted: FullOrders.Gold == 0, SeperateItems.Gold == " + remainderOfEnchGold + ", FullOrders.WolfTeeth == 0, SeperateItems.WolfTeeth == " + remainderOfWolfTeeth + ", Profit Expected == " + Profit + ".")
             }
             else{
-                console.log("Buying the ingredients for gold teeth is profitable right now. Buy " + remainderOfEnchGold + " enchanted gold ingots in a order.")
+                console.warn("No available if / else if slot for CodeWrite Automation Update Enchgold area. Sub Module == GoldenTooth Flipper")
             }
-            if(WolfToothAmount>71680){
-                console.log("For the wolf teeth, Buy " + quotientOfWolfteeth + " full buy orders of REGUALAR Wolf Teeth, and " + remainderOfWolfTeeth + " Wolf teeth in a seperate order.")
+
+            if (ObjectValue===1){
+                GoldToothObject1.EnchantedSuperior=1;
+                GoldToothObject1.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
+                GoldToothObject1.PricePerGoldIngot=Math.round(CleanEnchGoldPrice * 10)/10;
+                GoldToothObject1.SeperateWolfToothItems=remainderOfWolfTeeth;
+                GoldToothObject1.FullOrderWolfTeethItems=quotientOfWolfteeth;
+                GoldToothObject1.SeperateGoldIngotItems=remainderOfEnchGold;
+                GoldToothObject1.FullOrderGoldIngotsItems=quotientOfEnchGold;
+                GoldToothObject1.Profit=Profit;
+            }
+            else if (ObjectValue===2){
+                GoldToothObject2.EnchantedSuperior=1;
+                GoldToothObject2.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
+                GoldToothObject2.PricePerGoldIngot=Math.round(CleanEnchGoldPrice * 10)/10;
+                GoldToothObject2.SeperateWolfToothItems=remainderOfWolfTeeth;
+                GoldToothObject2.FullOrderWolfTeethItems=quotientOfWolfteeth;
+                GoldToothObject2.SeperateGoldIngotItems=remainderOfEnchGold;
+                GoldToothObject2.FullOrderGoldIngotsItems=quotientOfEnchGold;
+                GoldToothObject2.Profit=Profit;
+            }
+            else if (ObjectValue===3){
+                GoldToothObject3.EnchantedSuperior=1;
+                GoldToothObject3.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
+                GoldToothObject3.PricePerGoldIngot=Math.round(CleanEnchGoldPrice * 10)/10;
+                GoldToothObject3.SeperateWolfToothItems=remainderOfWolfTeeth;
+                GoldToothObject3.FullOrderWolfTeethItems=quotientOfWolfteeth;
+                GoldToothObject3.SeperateGoldIngotItems=remainderOfEnchGold;
+                GoldToothObject3.FullOrderGoldIngotsItems=quotientOfEnchGold;
+                GoldToothObject3.Profit=Profit;
+            }
+            else if (ObjectValue===4){
+                GoldToothObject4.EnchantedSuperior=1;
+                GoldToothObject4.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
+                GoldToothObject4.PricePerGoldIngot=Math.round(CleanEnchGoldPrice * 10)/10;
+                GoldToothObject4.SeperateWolfToothItems=remainderOfWolfTeeth;
+                GoldToothObject4.FullOrderWolfTeethItems=quotientOfWolfteeth;
+                GoldToothObject4.SeperateGoldIngotItems=remainderOfEnchGold;
+                GoldToothObject4.FullOrderGoldIngotsItems=quotientOfEnchGold;
+                GoldToothObject4.Profit=Profit;
+            }
+            else if (ObjectValue===5){
+                GoldToothObject5.EnchantedSuperior=1;
+                GoldToothObject5.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
+                GoldToothObject5.PricePerGoldIngot=Math.round(CleanEnchGoldPrice * 10)/10;
+                GoldToothObject5.SeperateWolfToothItems=remainderOfWolfTeeth;
+                GoldToothObject5.FullOrderWolfTeethItems=quotientOfWolfteeth;
+                GoldToothObject5.SeperateGoldIngotItems=remainderOfEnchGold;
+                GoldToothObject5.FullOrderGoldIngotsItems=quotientOfEnchGold;
+                GoldToothObject5.Profit=Profit;
             }
             else{
-                console.log("For the wolf teeth, Buy " + remainderOfWolfTeeth + " Wolf teeth in a order.")
+                console.log("Invalid object number entered into gold tooth flipper. object value == " + ObjectValue)
             }
-            console.warn("The Golden Wolf Tooth Command was ran here. The estimated profit for it was " + Profit + " coins.")
-            console.log("This calculation was done assuming the player here was " + Player.IGN + " and the tax rate for the player crafting is " + CoopTaxRate + ".");
         }
     }
+    console.log("----------------------------------->>     GoldToothFlipper Call Finished     <<------------------------------")
 }// Func "GoldToothFlipper" is at v0.9,v1 will occor when automatically taking the targetplayer's money is automatically detected along with the prices of every ietm listed. This is the final version for manual usage.
 
 function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,ObjectValue){ //add playerapikey to used things
@@ -280,35 +538,35 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
                 EnderPearlObject1.FullOrders = quotient;
                 EnderPearlObject1.SeperateItems = remainder;
                 EnderPearlObject1.Profit = Profit;
-                EnchantedSuperior:0;
+                EnderPearlObject1.EnchantedSuperior=0;
             }
             else if(ObjectValue===2){
                 EnderPearlObject2.MoneyPP = Math.round(CleanEPearls * 10)/10;
                 EnderPearlObject2.FullOrders = quotient;
                 EnderPearlObject2.SeperateItems = remainder;
                 EnderPearlObject2.Profit = Profit;
-                EnchantedSuperior:0;
+                EnderPearlObject2.EnchantedSuperior=0;
             }
             else if(ObjectValue===3){
                 EnderPearlObject3.MoneyPP = Math.round(CleanEPearls * 10)/10;
                 EnderPearlObject3.FullOrders = quotient;
                 EnderPearlObject3.SeperateItems = remainder;
                 EnderPearlObject3.Profit = Profit;
-                EnchantedSuperior:0;
+                EnderPearlObject3.EnchantedSuperior=0;
             }
             else if(ObjectValue===4){
                 EnderPearlObject4.MoneyPP = Math.round(CleanEPearls * 10)/10;
                 EnderPearlObject4.FullOrders = quotient;
                 EnderPearlObject4.SeperateItems = remainder;
                 EnderPearlObject4.Profit = Profit;
-                EnchantedSuperior:0;
+                EnderPearlObject4.EnchantedSuperior=0;
             }
             else if(ObjectValue===5){
                 EnderPearlObject5.MoneyPP = Math.round(CleanEPearls * 10)/10;
                 EnderPearlObject5.FullOrders = quotient;
                 EnderPearlObject5.SeperateItems = remainder;
                 EnderPearlObject5.Profit = Profit;
-                EnchantedSuperior:0;
+                EnderPearlObject5.EnchantedSuperior=0;
             }
             else{
                 console.warn("Invalid Object Value has been entered into module EnderPearlFlipper. ObjectValue == " + ObjectValue + ", Enchanted Ender Pearls here. Report this bug to my github as it is really breaking the HyTools system.")
@@ -330,35 +588,35 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
                 EnderPearlObject1.FullOrders = quotient;
                 EnderPearlObject1.SeperateItems = remainder;
                 EnderPearlObject1.Profit = Profit;
-                EnchantedSuperior:1;
+                EnderPearlObject1.EnchantedSuperior=1;
             }
             else if(ObjectValue===2){
                 EnderPearlObject2.MoneyPP = Math.round(CleanEEPearls * 10)/10;
                 EnderPearlObject2.FullOrders = quotient;
                 EnderPearlObject2.SeperateItems = remainder;
                 EnderPearlObject2.Profit = Profit;
-                EnchantedSuperior:1;
+                EnderPearlObject2.EnchantedSuperior=1;
             }
             else if(ObjectValue===3){
                 EnderPearlObject3.MoneyPP = Math.round(CleanEEPearls * 10)/10;
                 EnderPearlObject3.FullOrders = quotient;
                 EnderPearlObject3.SeperateItems = remainder;
                 EnderPearlObject3.Profit = Profit;
-                EnchantedSuperior:1;
+                EnderPearlObject3.EnchantedSuperior=1;
             }
             else if(ObjectValue===4){
                 EnderPearlObject4.MoneyPP = Math.round(CleanEEPearls * 10)/10;
                 EnderPearlObject4.FullOrders = quotient;
                 EnderPearlObject4.SeperateItems = remainder;
                 EnderPearlObject4.Profit = Profit;
-                EnchantedSuperior:1;
+                EnderPearlObject4.EnchantedSuperior=1;
             }
             else if(ObjectValue===5){
                 EnderPearlObject5.MoneyPP = Math.round(CleanEEPearls * 10)/10;
                 EnderPearlObject5.FullOrders = quotient;
                 EnderPearlObject5.SeperateItems = remainder;
                 EnderPearlObject5.Profit = Profit;
-                EnchantedSuperior:1;
+                EnderPearlObject5.EnchantedSuperior=1;
             }
         }
         console.log("----------------------------------->>     EPearlFlipper Call Finished     <<------------------------------")

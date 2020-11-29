@@ -78,3 +78,27 @@ th, td{
     50%{background-position:100% 25%}
     100%{background-position:0% 50%}
 }
+#GoldToothFlipperTable{
+    width:100%;
+}
+#NegativeNumberWarning{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+#GoldToothFlipperDelcarer1{
+    text-align: center;
+}
+#EnderPearlDelcarer1{
+    text-align: center;
+}
+#EPearlSection{
+    border-bottom: 1px solid black;
+    border-radius: 10px;
+}
+#GoldFlipperSection{
+    border-bottom: 1px solid black;
+    border-radius: 10px;
+}
+#BuildPinger{
+    margin-top: 50px;
+}
