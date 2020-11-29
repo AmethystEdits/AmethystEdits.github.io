@@ -109,7 +109,7 @@ let GoldToothObject5={
 
 let CoopTaxRate = 1.5;
 let ActualBuildNumber = "0.9.6.2"
-let BuildNumber = "Amethyst Engine://HytoolsModule Build V" + ActualBuildNumber + " loaded // Unstable";
+let BuildNumber = "Amethyst Engine://HytoolsModule Build V" + ActualBuildNumber + " loaded // Unstable // Debug SubUpdate";
 
 /*----------     Begin Hypixel Skybock Bazaar grabbing area     ----------*/
 
@@ -135,6 +135,7 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
         //Grab how much money the player has
         let RawPlayerJSON = await fetch('https://api.hypixel.net/skyblock/profiles?key=' + Player.APIKey + '&uuid=' + Player.UUID);
         let FormattedPlayerJSON = await RawPlayerJSON.json();
+        console.log(FormattedPlayerJSON)
         for(let i=0;await FormattedPlayerJSON.profiles[MoneyGrabbingForState].cute_name !== Player.Profile;MoneyGrabbingForState++){}
         Player.Money= Math.floor(await FormattedPlayerJSON.profiles[MoneyGrabbingForState].members[Player.UUID].coin_purse);
     
@@ -634,17 +635,4 @@ document.getElementById("BuildPinger").innerHTML=BuildNumber;  //change the text
 orientation of num1 and num2 dosent matter
 ---   ---   ---   ---   ---
 PriceOfThing = PriceOfThing+(CoopTaxRate/100)*PriceOfThing; // incoporate tax
----   ---   ---   ---   ---
-*/
-
-// take numbers +>
-// run through flipper as if >it were the values of +0.1,+0.2,-0.1,-0.2,same +>
-// change innerHTML values +>
-// announce the new update
-
-
-
-// take numbers, added which type val
-// chnage EnderPearlObject*val*
-// run seperate func that changes every value on the table of the html file
-// setInterval(FunctioName,TimeinMS) is how to update shit every blah blah blah
+---   ---   ---   ---   ---*/
