@@ -108,7 +108,7 @@ let GoldToothObject5={
 
 
 let CoopTaxRate = 1.5;
-let ActualBuildNumber = "0.9.6.1"
+let ActualBuildNumber = "0.9.6.2"
 let BuildNumber = "Amethyst Engine://HytoolsModule Build V" + ActualBuildNumber + " loaded // Unstable";
 
 /*----------     Begin Hypixel Skybock Bazaar grabbing area     ----------*/
@@ -346,7 +346,7 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             let Profit = Math.floor((Math.floor(Math.abs(GoldFinalPrice-PriceOfGoldenTooth)))*(MoneyAvailable/GoldFinalPrice));
             // console.log(quotient + "quotient," + remainder + " remainder, " + Profit + " profit, "); debug options
             // console.log(GPX160 + "gpx + " ,EnchGoldFinalPrice + "enchgoldfilapprice + " ,GoldFinalPrice + "elseblocc" );
-            let GoldAmount=((quotient*71680)+remainder)*32;
+            let GoldAmount=((quotient*71680)+remainder)*(32*160);
             let WolfToothAmount=((quotient*71680)+remainder)*128;
             let quotient2 = Math.floor(GoldAmount/71680);
             let remainder2 = Math.floor(GoldAmount % 71680);
@@ -369,7 +369,7 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             if (ObjectValue===1){
                 GoldToothObject1.EnchantedSuperior=0;
                 GoldToothObject1.PricePerWolfTooth= Math.round(CleanWolfTeethPrice * 10)/10;
-                GoldToothObject1.PricePerGoldIngot=Math.round(GPX160 * 10)/10;
+                GoldToothObject1.PricePerGoldIngot=Math.round(CleanGoldPrice * 10)/10;
                 GoldToothObject1.SeperateWolfToothItems=remainder3;
                 GoldToothObject1.FullOrderWolfTeethItems=quotient3;
                 GoldToothObject1.SeperateGoldIngotItems=remainder2;
@@ -379,7 +379,7 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             else if (ObjectValue===2){
                 GoldToothObject2.EnchantedSuperior=0;
                 GoldToothObject2.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
-                GoldToothObject2.PricePerGoldIngot=Math.round(GPX160 * 10)/10;
+                GoldToothObject2.PricePerGoldIngot=Math.round(CleanGoldPrice * 10)/10;
                 GoldToothObject2.SeperateWolfToothItems=remainder3;
                 GoldToothObject2.FullOrderWolfTeethItems=quotient3;
                 GoldToothObject2.SeperateGoldIngotItems=remainder2;
@@ -389,7 +389,7 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             else if (ObjectValue===3){
                 GoldToothObject3.EnchantedSuperior=0;
                 GoldToothObject3.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
-                GoldToothObject3.PricePerGoldIngot=Math.round(GPX160 * 10)/10;
+                GoldToothObject3.PricePerGoldIngot=Math.round(CleanGoldPrice * 10)/10;
                 GoldToothObject3.SeperateWolfToothItems=remainder3;
                 GoldToothObject3.FullOrderWolfTeethItems=quotient3;
                 GoldToothObject3.SeperateGoldIngotItems=remainder2;
@@ -399,7 +399,7 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             else if (ObjectValue===4){
                 GoldToothObject4.EnchantedSuperior=0;
                 GoldToothObject4.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
-                GoldToothObject4.PricePerGoldIngot=Math.round(GPX160 * 10)/10;
+                GoldToothObject4.PricePerGoldIngot=Math.round(CleanGoldPrice * 10)/10;
                 GoldToothObject4.SeperateWolfToothItems=remainder3;
                 GoldToothObject4.FullOrderWolfTeethItems=quotient3;
                 GoldToothObject4.SeperateGoldIngotItems=remainder2;
@@ -409,7 +409,7 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             else if (ObjectValue===5){
                 GoldToothObject5.EnchantedSuperior=0;
                 GoldToothObject5.PricePerWolfTooth=Math.round(CleanWolfTeethPrice * 10)/10;
-                GoldToothObject5.PricePerGoldIngot=Math.round(GPX160 * 10)/10;
+                GoldToothObject5.PricePerGoldIngot=Math.round(CleanGoldPrice * 10)/10;
                 GoldToothObject5.SeperateWolfToothItems=remainder3;
                 GoldToothObject5.FullOrderWolfTeethItems=quotient3;
                 GoldToothObject5.SeperateGoldIngotItems=remainder2;
@@ -419,8 +419,6 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
             else{
                 console.log("Invalid object number entered into gold tooth flipper. object value == " + ObjectValue)
             }
-            console.warn("The Golden Wolf Tooth Command was ran here. The estimated profit for it was " + Profit + " coins.")
-            console.log("This calculation was done assuming the player here was " + Player.IGN + " and the tax rate for the player crafting is " + CoopTaxRate + ".");
         }
         else{
             // console.log(GPX160 + "gpx + " ,EnchGoldFinalPrice + "enchgoldfilapprice + " ,GoldFinalPrice + "elseblocc" ) debug option
