@@ -108,8 +108,8 @@ let GoldToothObject5={
 
 
 let CoopTaxRate = 1.5;
-let ActualBuildNumber = "0.9.6.2"
-let BuildNumber = "Amethyst Engine://HytoolsModule Build V" + ActualBuildNumber + " loaded // Unstable // Debug SubUpdate";
+let ActualBuildNumber = "0.9.6.2.2"
+let BuildNumber = "Amethyst Engine >>::<< HytoolsModule Build V" + ActualBuildNumber + " loaded // Unstable // BlackList SubUpdate";
 
 /*----------     Begin Hypixel Skybock Bazaar grabbing area     ----------*/
 
@@ -315,9 +315,16 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
 
     /*------------------------------     Function-Dependant Values Area     ------------------------------*/
     Player.UUID = await GetUUID();
+    // UnComment this \/\/\/ if ryze is being a bad boi
+    // if (Player.UUID == "4e4bec095f85490d94d93554231bc028"){
+    //     console.warn("This user is a banned user. The flipper wont work for you, and don't expect it to unless you're a certain friend of mine.")
+    // }
+    // else{
+    //     GetAndReplaceData()
+    //     setInterval(GetAndReplaceData,5000)
+    // }
     GetAndReplaceData()
     setInterval(GetAndReplaceData,5000)
-
 }
 /*    begin fucntion area     */
 function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGoldenTooth,MoneyAvailable,ObjectValue){
@@ -502,7 +509,7 @@ function GoldToothFlipper(PriceOfEnchGold,PriceOfGold,PriceOfWolfTeeth,PriceOfGo
         }
     }
     console.log("----------------------------------->>     GoldToothFlipper Call Finished     <<------------------------------")
-}// Func "GoldToothFlipper" is at v0.9,v1 will occor when automatically taking the targetplayer's money is automatically detected along with the prices of every ietm listed. This is the final version for manual usage.
+}// Func "GoldToothFlipper" is at v1
 
 function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,ObjectValue){ //add playerapikey to used things
     CleanEPearls = PriceOfEPearls;
@@ -621,8 +628,7 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
         console.log("----------------------------------->>     EPearlFlipper Call Finished     <<------------------------------")
     }
     
-}// Func "EPearlFlipper" is at v0.9.5,v1 will occor when automatically taking the targetplayer's money is automatically detected along with the prices of every ietm listed. This is the final version for manual usage.
-
+}// Func "EPearlFlipper" is at v1.0
 
 console.warn(BuildNumber);  //log build number into console
 document.getElementById("BuildPinger").innerHTML=BuildNumber;  //change the text of hytools.html from the page broken message to the build number

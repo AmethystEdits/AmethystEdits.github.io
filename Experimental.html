@@ -117,11 +117,34 @@
                 //     Player.Money= Math.floor(await FormattedPlayerJSON.profiles[MoneyGrabbingForState].members[Player.UUID].coin_purse);
                 //     console.log(Player.Money)
                 // }
-                let CleanEEPearls = 8.59999999999999;
-                let cheese = 
-                console.log(cheese)
+                // let CleanEEPearls = 8.59999999999999;
+                // let cheese = 
+                // console.log(cheese)
+                // document.cookie = "Cheese Conker the first";
+                // document.cooke = "PlayerName; Ry2e0"
+                // document.cookie = "APIKey; PlayerKeyHere"
+                // doucment.cookie = "ProfileCuteName; Pear"
+                document.cookie = "PlayerName=Ry2e0"
+                document.cookie = "APIKey=6eeb-blah-blah-blah"
+                document.cookie = "ProfileName=Watermelon"
+                if (document.cookie.split(';').some(function(item) {
+                    return item.trim().indexOf('PlayerName=') == 0
+                })) {
+                    console.log('The cookie "PlayerName" exists (ES5)')
+                }
+                else{
+                    console.log("ding dong playername no exist");
+                }
+                const cookieValue = document.cookie
+                    .split('; ')
+                    .find(row => row.startsWith('PlayerName'))
+                    .split('=')[1];
 
+                function alertCookieValue() {
+                    console.log(cookieValue);
+                }
         </script>
+        <button onclick="alertCookieValue()">Cheese the chonker of massie proportions</button>
         <pre id="coke"></pre>
     </body>
 </html>
