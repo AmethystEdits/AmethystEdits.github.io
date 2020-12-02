@@ -630,6 +630,8 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
     
 }// Func "EPearlFlipper" is at v1.0
 
+fun
+
 console.warn(BuildNumber);  //log build number into console
 document.getElementById("BuildPinger").innerHTML=BuildNumber;  //change the text of hytools.html from the page broken message to the build number
 

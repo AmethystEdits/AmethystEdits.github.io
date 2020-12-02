@@ -87,9 +87,11 @@ th, td{
 }
 #GoldToothFlipperDelcarer1{
     text-align: center;
+    user-select: none;
 }
 #EnderPearlDelcarer1{
     text-align: center;
+    user-select: none;
 }
 #EPearlSection{
     border-bottom: 1px solid black;
