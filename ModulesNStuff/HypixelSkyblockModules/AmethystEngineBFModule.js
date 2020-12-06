@@ -168,7 +168,7 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
         document.getElementById("Profit1").innerHTML=EnderPearlObject1.Profit;
         
         /*------------------------------     Object 2     ------------------------------*/
-        if (EnderPearlObject2.EnchantedSuperio === 1){
+        if (EnderPearlObject2.EnchantedSuperior === 1){
             document.getElementById("IsEnchanted2").innerHTML="Yes"
         }
         else{
@@ -630,7 +630,7 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
     
 }// Func "EPearlFlipper" is at v1.0
 
-fun
+
 
 console.warn(BuildNumber);  //log build number into console
 document.getElementById("BuildPinger").innerHTML=BuildNumber;  //change the text of hytools.html from the page broken message to the build number

@@ -2,11 +2,15 @@
 // compress with https://javascriptcompressor.com/
 //use semi colons you buffoon
 let AEHypixelModule = {
+    version:"0.5.1",
     logSuccessfulFunctionExecutions: false,
     APIKey:"",
     player:{
         IGN:"",
         UUID:"",
+        profile:"",
+        JSON:"",
+        money:0,
     },
     TextPlaceHolder:"",
     IntegerPlaceHolder:0,
@@ -59,5 +63,69 @@ let AEHypixelModule = {
         };
         return x;
     },
+    async getMoneyAvailable(Profile_With_Proper_capitilisation_optional_input_empty_string_for_already_input){
+        let ProfileCuteName = "";
+        // debugging things ingnore
+        //check that a proper profile name has been entered
+        if (Profile_With_Proper_capitilisation_optional_input_empty_string_for_already_input === ""){
+            if(this.player.profile == ""){
+                console.log('AEHypixelFramework.player.profile == ""; Insert something into the Profile value for this function, or set "AEHypixelFramework.player.profile" to a profile name with proper capitilisation ( for eample instead of typing watermelon type Watermelon).');
+            }
+            else{
+                ProfileCuteName = Profile_With_Proper_capitilisation_optional_input_empty_string_for_already_input;
+            };
+        }
+        else{
+            ProfileCuteName = Profile_With_Proper_capitilisation_optional_input_empty_string_for_already_input;
+        };
 
+        //check that a username or uuid already exists
+        if(this.player.IGN == "" || this.player.UUID == ""){
+            console.log('No player name or player UUID has been entered yet; the path for the IGN is "AEHypixelFramework.player.IGN", the path for the uuid is either "AEHypixelFramework.player.UUID" or by running the "getUUID" function located at "AEHypixelFramework.getUUID". if you eneter a usename, the getUUID function will be called and the player.UUID var will be called. if you need it to be empty, call the getUUID function, copy the player.UUID var to your own and set player.UUID to "" as it is a string.');
+        }
+        else{ //when all other things above are succesfull
+            let RawPlayerJSON = await fetch('https://api.hypixel.net/skyblock/profiles?key=' + this.APIKey + '&uuid=' + this.player.UUID);
+            this.player.JSON = await RawPlayerJSON.json();
+            for(let i=0;await this.player.JSON.profiles[this.IntegerPlaceHolder].cute_name !== Player.Profile;this.IntegerPlaceHolder++){};
+            let rawPlayerMoney= Math.floor(await FormattedPlayerJSON.profiles[this.IntegerPlaceHolder].members[this.player.UUID].coin_purse);
+            this.player.money = rawPlayerMoney;
+            if(this.logSuccessfulFunctionExecutions === true){
+                console.log("Player Money == " + this.player.money);
+                console.log("fetched JSON file == ");
+                console.log(this.player.JSON);
+            };
+        };
+
+    }
+
+};
+let VersionType = "";
+let RealVersion = "";
+let CallVersion = true;
+let XYZEEFF = "";
+let XYZEFFE = "";
+async function XYUFF(){
+    XYZEEFF = await fetch('https://amethystedits.github.io/AE%20Hypixel%20Framework/AEHFVersion.json');
+    XYZEFFE = await XYZEEFF.json(); 
+};
+XYUFF();
+if(CallVersion === true){
+    let VERXXF = XYZEFFE.Version;
+    if(VERXXF !== AEHypixelModule.version){
+        console.log("Amethyst Engine // Hypixel Frame work has updated. Please visit "); // %!%!/ dont check this, add the link to my github realeas pagte
+    }
+    else{
+        console.log("Amethyst Engine // Hypixel Frame Work is up to date.");
+    };
 }
+else{
+    let VERXXF = XYZEFFE.Version;
+    if(VERXXF !== AEHypixelModule.version){
+        VersionType = "Amethyst Engine // Hypixel Frame work has updated. Please visit "; // %!%!/ dont check this, add the link to my github realeas pagte
+        RealVersion = VERXXF;
+    }
+    else{
+        VersionType = "Amethyst Engine // Hypixel Frame Work is up to date.";
+        RealVersion = VERXXF;
+    };
+};
