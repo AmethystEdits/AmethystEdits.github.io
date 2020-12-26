@@ -1,2 +1,0 @@
-https://github.com/HypixelDev/PublicAPI
-hypixel api documentation use this for the bazaarflipper module /\

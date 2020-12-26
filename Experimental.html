@@ -150,15 +150,81 @@
                 // console.log(e + ".")
                 // e = 1;
                 // console.log(e + ".")
-                let x = false;
-                if(x){
-                    console.log("eee")
+                // let x = false;
+                // if(x){
+                //     console.log("eee")
+                // }
+                // else{
+                //     console.log("fff")
+                // }
+                // function fre(){
+                //     alert("dont")
+                // }
+                // let e = {
+                //     xyz:10,
+                // }
+                // let f = {
+                //     pp: function(){
+                //         console.log(e.xyz)
+                //     }
+                // }
+                // let x = [];
+                // let e = 1;
+                // function kkk(){
+                //     x.push("lol" + e)
+                //     e++;
+                // }
+                // function fre(){
+                //     console.log(x)
+                // }
+                function x (){
+                    let e = document.getElementById("cheese").value;
+                    document.getElementById("gg").innerHTML = e;
+                    console.log(e)
                 }
-                else{
-                    console.log("fff")
+                fetch('https:example.com/input')
+                function try1(){
+                    try {
+                        x = 12;
+                        return x;
+                    } catch{
+                        console.log("failure")
+                    }
                 }
         </script>
-        <button onclick="alertCookieValue()">Cheese the chonker of massie proportions</button>
+        <form>
+            <label for="xyz">fuuuuuuuuuuuuuuuuuuuuuu</label>
+            <input type="text" id="xyz" required>
+            <br>
+            <button id="cheese2" onclick="x()">mfs took my crap ind etorut</button>
+            <br>
+            <label for="cheese">Select what profile you are on</label>
+            <select id="cheese" required>
+                <!-- picks which profile to be on via dropdown -->
+                <option value="Banana">Banana</option>
+                <option value="Blueberry">Blueberry</option>
+                <option value="Coconut">Coconut</option>
+                <option value="Cucumber">Cucumber</option>
+                <option value="Grapes">Grapes</option>
+                <option value="Kiwi">Kiwi</option>
+                <option value="Lemon">Lemon</option>
+                <option value="Lime">Lime</option>
+                <option value="Mango">Mango</option>
+                <option value="Orange">Orange</option>
+                <option value="Papaya">Papaya</option>
+                <option value="Peach">Peach</option>
+                <option value="Pear">Pear</option>
+                <option value="Pineapple">Pineapple</option>
+                <option value="Pomegranate">Pomegranate</option>
+                <option value="Raspberry">Raspberry</option>
+                <option value="Strawberry">Strawberry</option>
+                <option value="Tomato">Tomato</option>
+                <option value="Watermelon">Watermelon</option>
+                <option value="Zucchini">Zucchini</option>
+            </select>
+        </form>
+        
+        <p id="gg"></p>
         <pre id="coke"></pre>
     </body>
 </html>
