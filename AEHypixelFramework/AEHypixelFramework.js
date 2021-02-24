@@ -1,6 +1,6 @@
 // /%!%!/ is the double check this works call, kapeesh
 // compress with https://javascriptcompressor.com/
-//use semi colons you buffoon
+//Noob's ModVersion
 let AEHypixelModule = {
     version:"0.5.0",
     logSuccessfulFunctionExecutions: false,
@@ -11,6 +11,18 @@ let AEHypixelModule = {
         profile:"",
         JSON:"",
         money:0,
+    },
+    debugging:false,
+    AEPlaceholders={
+        VersionType:'',
+        RealVersion:'',
+        CallVersion:true,
+        AE3:"",
+        AE2:"",
+        async AE4(){
+            this.AE3 = await fetch('https://amethystedits.github.io/AEHypixelFramework/AEHFVersion.json');
+            this.AE2 = await this.AE3.json(); 
+        }
     },
     TextPlaceHolder:"",
     IntegerPlaceHolder:0,
@@ -25,9 +37,8 @@ let AEHypixelModule = {
             console.log("player.IGN");
             console.log("The path for this variable is:");
             console.log("AEHypixelModule.player.IGN");
-            console.log("It is a string, chaning it should look like the function below:");
-            console.log('AEHypixelModule.player.IGN = "*Insert player name here*"');
-            console.log("Where *Insert Player name here* is an actual player name, such as Timedeo or PewDiePie");
+            console.log("It is a string");
+            console.log("Where *Insert Player name here* is an actual player name, such as Timedeo");
             console.log("It isn't case sensitive, and once it has been called, should'nt have to be used ever again as the uuid never changes..");
         }
         else{
@@ -40,7 +51,7 @@ let AEHypixelModule = {
             };
         }
     },
-    async getItemBazaarData(name_of_item_in_full_caps){
+    async getItemBazaarData(name_of_item_in_full_caps=""){
         if(this.APIKey === ""){
             console.warn("Unsuccessful execution of 'getItemBazaarData' function")
             console.log("No API key has been provided, path = 'AEHypixelFramework.APIKey' (string)")
@@ -56,13 +67,13 @@ let AEHypixelModule = {
         }
         
     }, //double check this works (/%!%!/)
-    incorporateTax: function(tax_rate,price_of_item_to_have_tax_added_to_self){
-        this.IntegerPlaceHolder = price_of_item_to_have_tax_added_to_self+(tax_rate/100)*price_of_item_to_have_tax_added_to_self;
+    incorporateTax: function(tax_rate=0,item_price=0){
+        this.IntegerPlaceHolder = item_price+(tax_rate/100)*item_price;
         let x = this.IntegerPlaceHolder;
         this.resetPlaceholders();
         return x;
     },
-    find_buy_orders: function(Item_Amount,Amount_of){
+    find_buy_orders: function(Item_Amount=0,Amount_of=0){
         let quotient = Math.floor(Item_Amount/Amount_of);
         let remainder = Math.floor(Item_Amount % Amount_of);
         let x = {
@@ -71,20 +82,20 @@ let AEHypixelModule = {
         };
         return x;
     },
-    async getMoneyAvailable(Profile_With_Proper_capitilisation_optional_input_empty_string_for_already_input){
+    async getMoneyAvailable(ProfileName=""){
         let ProfileCuteName = "";
         // debugging things ingnore
         //check that a proper profile name has been entered
-        if (Profile_With_Proper_capitilisation_optional_input_empty_string_for_already_input === ""){
+        if (ProfileName === ""){
             if(this.player.profile == ""){
                 console.log('AEHypixelFramework.player.profile == ""; Insert something into the Profile value for this function, or set "AEHypixelFramework.player.profile" to a profile name with proper capitilisation ( for eample instead of typing watermelon type Watermelon).');
             }
             else{
-                ProfileCuteName = Profile_With_Proper_capitilisation_optional_input_empty_string_for_already_input;
+                ProfileCuteName = ProfileName;
             };
         }
         else{
-            ProfileCuteName = Profile_With_Proper_capitilisation_optional_input_empty_string_for_already_input;
+            ProfileCuteName = ProfileName;
         };
 
         //check that a username or uuid already exists
@@ -107,35 +118,24 @@ let AEHypixelModule = {
     }
 
 };
-let VersionType = "";
-let RealVersion = "";
-let CallVersion = true;
-let AE1 = "";
-let AE3 = "";
-let AE2 = "";
-async function AE4(){
-    AE3 = await fetch('https://amethystedits.github.io/AEHypixelFramework/AEHFVersion.json');
-    AE2 = await AE3.json(); 
-};
-AE4();
-if(CallVersion === true){
-    let AE9 = AE2.Version;
+AEHypixelModule.AEPlaceholders.AE4();
+if(AEHypixelModule.AEPlaceholders.CallVersion === true){
+    let AE9 = AEHypixelModule.AEPlaceholders.AE2.Version;
     if(AE9 !== AEHypixelModule.Version){
-        console.log("Amethyst Engine // Hypixel Frame work has updated. Please visit "); // %!%!/ dont check this, add the link to my github realeas pagte
+        console.log("Amethyst Engine // Hypixel Frame work has updated to V" + AEHypixelModule.AEPlaceholders.AE2.Version + "."); // %!%!/ dont check this, add the link to my github realeas pagte
     }
     else{
         console.log("Amethyst Engine // Hypixel Frame Work is up to date.");
     };
 }
 else{
-    let AE9 = AE2.Version;
+    let AE9 = AEHypixelModule.AEPlaceholders.AE2.Version;
     if(AE9 !== AEHypixelModule.Version){
-        VersionType = "Amethyst Engine // Hypixel Frame work has updated. Please visit "; // %!%!/ dont check this, add the link to my github realeas pagte
-        RealVersion = AE9;
+        AEHypixelModule.AEPlaceholders.VersionType = "Amethyst Engine // Hypixel Frame work has updated. Please visit "; // %!%!/ dont check this, add the link to my github realeas pagte
+        AEHypixelModule.AEPlaceholders.RealVersion = AE9;
     }
     else{
-        VersionType = "Amethyst Engine // Hypixel Frame Work is up to date.";
-        RealVersion = AE9;
+        AEHypixelModule.AEPlaceholders.VersionType = "Amethyst Engine // Hypixel Frame Work is up to date.";
+        AEHypixelModule.AEPlaceholders.RealVersion = AE9;
     };
 };
-console.log("Amethyst Engine Hypixel Skyblock Module version V" + AEHypixelModule.version + " loaded.");

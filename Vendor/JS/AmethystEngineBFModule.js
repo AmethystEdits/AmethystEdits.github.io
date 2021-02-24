@@ -1,4 +1,6 @@
 //init area
+import AEHypixelModule from "./Modules/AmethystEngineHytoolsModule2.js";
+
 let Player={
     APIKey:"",
     Money:0,
@@ -154,6 +156,7 @@ let GoldToothObject5={
 let CoopTaxRate = 1.5;
 let ActualBuildNumber = "0.9.7.1"
 let BuildNumber = "Amethyst Engine >>::<< HytoolsModule Build V" + ActualBuildNumber + " loaded // Catch/Debug Update";
+/*----------     Test Area     ----------*/
 
 /*----------     Begin Hypixel Skybock Bazaar grabbing area     ----------*/
 

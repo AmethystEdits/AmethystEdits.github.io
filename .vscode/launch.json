@@ -24,7 +24,14 @@
                 "<node_internals>/**"
             ],
             "type": "pwa-node"
+        },
+        {
+            "name": "HyToolsSU Attach",
+            "request": "attach",
+            "type": "pwa-msedge",
+            "port": 9229,
+            "url": "http://127.0.0.1:5500/ContainedTests/Two/test.html",
+            "webRoot": "${workspaceFolder}"
         }
-        
     ]
 }

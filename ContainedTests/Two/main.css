@@ -1,0 +1,54 @@
+#h2num1{
+    color:azure;
+    font-family: sans-serif;
+    font-size: large;
+}
+body{
+    background-color: #303030;
+    text-align: center;
+    align-content: center;
+}
+label{
+    padding:5px;
+    color:azure;
+}
+button{
+    color:azure;
+    background-color:#303030;
+    border: 2px solid black;
+    margin-top: 5px;
+}
+#tempLabel1{
+    margin: 10px;
+}
+.fillInWarning{
+    color:red;
+    font-size:small;
+}
+.madeDiv{
+    background-color: #303030;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    margin:5px;
+    line-height: 2px;
+}
+.newTitle{
+    text-align: left;
+    text-decoration: underline;
+    font-size: larger;
+    line-height: inherit !important;
+}
+.newDisplay{
+    text-align: left;
+}
+#profileSelect{
+    width:33%;
+    color:azure;
+    margin:auto;
+}
+.madeDiv:hover{
+    background-color: #4b4b4b;
+}
+.clicked{
+    background-color: #4b4b4b;
+}
