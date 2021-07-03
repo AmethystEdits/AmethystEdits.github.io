@@ -1,56 +1,10 @@
 //init area
-import AEHypixelModule from "./Modules/AmethystEngineHytoolsModule2.js";
-
 let Player={
     APIKey:"",
     Money:0,
     IGN:"AngxlsInTheSkyy",
     UUID:"",
     Profile:"",
-}
-let Debug={
-    timesCalled:{
-        second:0,
-        secondTen:0,
-        minute:0,
-        minuteTen:0,
-        hour:0,
-        ever:0
-    },
-    activate: function(){
-        setInterval(() => {
-            console.table(this.timesCalled)
-        }, 1000);
-    },
-    activateOnce: function(){
-        console.table(this.timesCalled)
-    },
-    plusOne: function (){
-        let x = this.timesCalled;
-        x.second++;
-        x.secondTen++;
-        x.minute++;
-        x.minuteTen++;
-        x.hour++;
-        x.ever++;
-    },
-    beginResetter: function(){
-        setInterval(() => {
-            this.timesCalled.second = 0;
-        }, 1000);
-        setInterval(() => {
-            this.timesCalled.secondTen = 0;
-        }, 10000);
-        setInterval(() => {
-            this.timesCalled.minute = 0;
-        }, 60000);
-        setInterval(() => {
-            this.timesCalled.minuteTen = 0;
-        }, 600000);
-        setInterval(() => {
-            this.timesCalled.hour = 0;
-        }, 3600000);
-    }
 }
 
 // Prices for these
@@ -171,13 +125,11 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
     async function GetUUID(){ //Get UUID of player for later usage
         try {
             let MojangJSONRaw = await fetch("https://cors-anywhere.herokuapp.com/" + "https://api.mojang.com/users/profiles/minecraft/" + Player.IGN)
-            Debug.plusOne();
             let FormattedMojangJSON = await MojangJSONRaw.json()
             let PlayerUUID= await FormattedMojangJSON.id;
             console.log(PlayerUUID)
             return PlayerUUID;
         } catch {
-            Debug.activateOnce();
             debugger;
         }
     }
@@ -187,7 +139,6 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
         //Begin
         //Grab how much money the player has
         let RawPlayerJSON = await fetch('https://api.hypixel.net/skyblock/profiles?key=' + Player.APIKey + '&uuid=' + Player.UUID);
-        Debug.plusOne();
         let FormattedPlayerJSON = await RawPlayerJSON.json();
         console.log(FormattedPlayerJSON)
         for(let i=0;await FormattedPlayerJSON.profiles[MoneyGrabbingForState].cute_name !== Player.Profile;MoneyGrabbingForState++){}
@@ -195,11 +146,9 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
     
         //Grab Ender Pearl Data
         let GrabEnderPearlJSON = await fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + Player.APIKey + "&productId=ENDER_PEARL");
-        Debug.plusOne();
         let EnderPearlJson = await GrabEnderPearlJSON.json()
         EnderPearlPrice = await (EnderPearlJson.product_info.buy_summary[0].pricePerUnit)+0.1;
         let GrabEnchantedEnderPearlJSON = await fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + Player.APIKey + "&productId=ENCHANTED_ENDER_PEARL");
-        Debug.plusOne();
         let EnchantedEnderPearlJSON = await GrabEnchantedEnderPearlJSON.json()
         EnchantedEnderPearlPrice = await (EnchantedEnderPearlJSON.product_info.buy_summary[0].pricePerUnit)+0.1;
     
@@ -273,19 +222,15 @@ async function startEngine(Your_Name_In_Game,Hypixel_API_Key,Your_Profile_Youre_
         
         //Gold tooth flipper area
         let GrabGoldIngotJSON = await fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + Player.APIKey + "&productId=GOLD_INGOT");
-        Debug.plusOne();
         let GoldIngotJSON = await GrabGoldIngotJSON.json()
         GoldPrice = await (GoldIngotJSON.product_info.buy_summary[0].pricePerUnit)+0.1;
         let GrabEnchantedGoldJSON = await fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + Player.APIKey + "&productId=ENCHANTED_GOLD");
-        Debug.plusOne();
         let EnchantedGoldJSON = await GrabEnchantedGoldJSON.json()
         EnchantedGoldPrice = await (EnchantedGoldJSON.product_info.buy_summary[0].pricePerUnit)+0.1;
         let GrabWolfToothJSON = await fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + Player.APIKey + "&productId=WOLF_TOOTH");
-        Debug.plusOne();
         let WolfToothJSON = await GrabWolfToothJSON.json()
         WolfToothPrice = await (WolfToothJSON.product_info.buy_summary[0].pricePerUnit)+0.1;
         let GrabGoldToothJSON = await fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + Player.APIKey + "&productId=GOLDEN_TOOTH");
-        Debug.plusOne();
         let GoldToothJSON = await GrabGoldToothJSON.json()
         GoldToothPrice = await (GoldToothJSON.product_info.buy_summary[0].pricePerUnit)+0.1;
 
@@ -671,7 +616,7 @@ function EPearlFlipper(PriceOfEPearls,PriceOfEnchantedEPearls,MoneyAvailable,Obj
 
 
 
-console.warn(BuildNumber);  //log build number into console
+console.log(BuildNumber);  //log build number into console
 document.getElementById("BuildPinger").innerHTML=BuildNumber;  //change the text of hytools.html from the page broken message to the build number
 
 /*-----------------------------------------         Explanation Area        -----------------------------------------*/
