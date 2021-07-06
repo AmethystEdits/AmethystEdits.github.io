@@ -6,8 +6,25 @@
         <title>help</title>
     </head>
     <body>
-        <p id="tom"></p>
-        <p id="peep"></p>
+        <style>
+            body{
+                background-color:#2f3136;
+                color:white;
+            }
+            div{
+                line-height: 20%;
+                text-align: center;
+            }
+            .profile{
+                font-size: x-large;
+            }
+            .identifier{
+                font-size: large;
+            }
+            .info{
+                font-size: medium;
+            }
+        </style>
         <script>
             // const playeruuid="1cfb8d5f-e3af-42fb-8d41-c89e4e9b1f2c";
             // let cheek="Watermelon";
@@ -22,7 +39,7 @@
             //     for(let i=0;await getItData2.profiles[cheese].cute_name !== "Pear";cheese++){
             //         console.log("In the for loop")
             //     }
-            //     console.log("yippi kay yay motherfuuuuuuuuu")
+            //     console.log("test1")
             //     console.log(getItData2.profiles[cheese].cute_name)
             // }
             // GetRedstoneData();
@@ -201,44 +218,49 @@
                 //         result[cur[0]] = cur[1];
                 //     }
                 // }
+                let Player={
+                    APIKey:"",
+                    Money:1000,
+                    IGN:"AngxlsInTheSkyy",
+                    UUID:"",
+                    Profile:"watermelon",
+                    playerInfo:{
+                        helmet:'strong drag helm',
+                        chestplate:'strong drag chestplate',
+                        leggings:'strong drag leggins',
+                        boots:"farmer's boots",
+                        combatLevel:10,
+                        farmingLevel:12,
+                    }
+                }
+
+                function createPElement(Location, Text, Class){
+                    let x = document.createElement('p')
+                    x.innerText=Text;
+                    x.className = Class;
+                    Location.append(x);
+                };
+
+                //make card function
+                function makeCard(where){
+                    let tempObject = {};
+                    tempObject.parentDiv = document.createElement('div');
+                    let x = tempObject.parentDiv;
+                    createPElement(x, "Profile: " + Player.Profile, 'profile');
+                    createPElement(x,Player.Money, 'info');
+                    createPElement(x,"Armor", 'identifier');
+                    createPElement(x,Player.playerInfo.helmet, 'info');
+                    createPElement(x,Player.playerInfo.chestplate, 'info');
+                    createPElement(x,Player.playerInfo.leggings, 'info');
+                    createPElement(x,Player.playerInfo.boots, 'info');
+                    createPElement(x,"Identifier Skills", 'identifier');
+                    createPElement(x,Player.playerInfo.combatLevel, 'info');
+                    createPElement(x,Player.playerInfo.farmingLevel, 'info');
+
+                    where.append(x)
+                };
                 
         </script>
-        <form>
-            <label for="xyz">fuuuuuuuuuuuuuuuuuuuuuu</label>
-            <input type="text" id="xyz" required>
-            <br>
-            <button id="cheese2" onclick="x()">mfs took my crap ind etorut</button>
-            <br>
-            <label for="cheese">Select what profile you are on</label>
-            <select id="cheese" required>
-                <!-- picks which profile to be on via dropdown -->
-                <option value="Banana">Banana</option>
-                <option value="Blueberry">Blueberry</option>
-                <option value="Coconut">Coconut</option>
-                <option value="Cucumber">Cucumber</option>
-                <option value="Grapes">Grapes</option>
-                <option value="Kiwi">Kiwi</option>
-                <option value="Lemon">Lemon</option>
-                <option value="Lime">Lime</option>
-                <option value="Mango">Mango</option>
-                <option value="Orange">Orange</option>
-                <option value="Papaya">Papaya</option>
-                <option value="Peach">Peach</option>
-                <option value="Pear">Pear</option>
-                <option value="Pineapple">Pineapple</option>
-                <option value="Pomegranate">Pomegranate</option>
-                <option value="Raspberry">Raspberry</option>
-                <option value="Strawberry">Strawberry</option>
-                <option value="Tomato">Tomato</option>
-                <option value="Watermelon">Watermelon</option>
-                <option value="Zucchini">Zucchini</option>
-            </select>
-        </form>
-        <div style="width:0px;height:0px">
-            <p>eeeeeeeeeeeee</p>
-        </div>
-        < id="gg"></>
-        <pre id="coke"></pre>
     </body>
 </html>
 

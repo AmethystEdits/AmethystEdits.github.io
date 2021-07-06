@@ -1,0 +1,37 @@
+ 
+<!-- <form>
+            <label for="xyz">fuuuuuuuuuuuuuuuuuuuuuu</label>
+            <input type="text" id="xyz" required>
+            <br>
+            <button id="cheese2" onclick="x()">mfs took my crap ind etorut</button>
+            <br>
+            <label for="cheese">Select what profile you are on</label>
+            <select id="cheese" required>
+                picks which profile to be on via dropdown
+                <option value="Banana">Banana</option>
+                <option value="Blueberry">Blueberry</option>
+                <option value="Coconut">Coconut</option>
+                <option value="Cucumber">Cucumber</option>
+                <option value="Grapes">Grapes</option>
+                <option value="Kiwi">Kiwi</option>
+                <option value="Lemon">Lemon</option>
+                <option value="Lime">Lime</option>
+                <option value="Mango">Mango</option>
+                <option value="Orange">Orange</option>
+                <option value="Papaya">Papaya</option>
+                <option value="Peach">Peach</option>
+                <option value="Pear">Pear</option>
+                <option value="Pineapple">Pineapple</option>
+                <option value="Pomegranate">Pomegranate</option>
+                <option value="Raspberry">Raspberry</option>
+                <option value="Strawberry">Strawberry</option>
+                <option value="Tomato">Tomato</option>
+                <option value="Watermelon">Watermelon</option>
+                <option value="Zucchini">Zucchini</option>
+            </select>
+        </form> -->
+        <!-- <div style="width:0px;height:0px">
+            <p>eeeeeeeeeeeee</p>
+        </div>
+        < id="gg"></>
+        <pre id="coke"></pre> -->
